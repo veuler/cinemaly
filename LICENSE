@@ -1,0 +1,120 @@
+Copyright (c) 2026 Veysel Mustafa Nantu (github.com/veuler)
+All Rights Reserved.
+
+SOURCE-AVAILABLE LICENSE
+
+This license governs the use of the software and source code contained in
+this repository ("Software"). By accessing, viewing, or interacting with
+this repository in any way, you agree to be bound by the terms of this
+license.
+
+────────────────────────────────────────────────────────────────────────────
+
+1. GRANT OF LIMITED VIEWING RIGHTS
+   ────────────────────────────────────────────────────────────────────────────
+
+Subject to the terms and conditions of this license, the copyright holder
+grants you a limited, non-exclusive, non-transferable, revocable right to:
+
+(a) View and read the source code contained in this repository for the
+sole purposes of security auditing, personal education, and
+verification of the privacy claims made by the Software; and
+
+(b) Clone or download the repository solely for local inspection.
+
+This grant does not constitute a license to use, run, or deploy the
+Software in any environment, including personal, commercial, or
+non-commercial.
+
+──────────────────────────────────────────────────────────────────────────── 2. RESTRICTIONS
+────────────────────────────────────────────────────────────────────────────
+
+You may NOT, without prior written permission from the copyright holder:
+
+(a) Use, execute, or run the Software or any portion of it, in whole or
+in part, in any environment, system, or application;
+
+(b) Copy, reproduce, or duplicate the Software or any portion of it
+beyond what is strictly necessary for local inspection;
+
+(c) Modify, adapt, translate, or create derivative works based on the
+Software or any portion of it;
+
+(d) Merge the Software or any portion of it into another project,
+codebase, or software system;
+
+(e) Publish, distribute, sublicense, sell, rent, lease, transfer, or
+otherwise make the Software or any portion of it available to any
+third party;
+
+(f) Remove, alter, or obscure any copyright, trademark, patent, or other
+proprietary notices contained in the Software;
+
+(g) Use the name "Cinemaly", the project's branding, logos, or the name
+of the copyright holder to endorse or promote any product or service
+derived from or related to this Software without prior written
+permission.
+
+──────────────────────────────────────────────────────────────────────────── 3. INTELLECTUAL PROPERTY
+────────────────────────────────────────────────────────────────────────────
+
+The Software, including all source code, design, architecture, algorithms,
+documentation, and associated materials, is and remains the exclusive
+intellectual property of the copyright holder. No title or ownership of
+the Software is transferred to you by virtue of this license or by your
+access to this repository.
+
+──────────────────────────────────────────────────────────────────────────── 4. NO WARRANTY
+────────────────────────────────────────────────────────────────────────────
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL
+THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF,
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF OR INABILITY TO USE THE
+SOFTWARE.
+
+──────────────────────────────────────────────────────────────────────────── 5. LIMITATION OF LIABILITY
+────────────────────────────────────────────────────────────────────────────
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF OR INABILITY
+TO USE THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+──────────────────────────────────────────────────────────────────────────── 6. TERMINATION
+────────────────────────────────────────────────────────────────────────────
+
+This license and the limited rights granted herein terminate automatically
+and immediately, without notice, if you breach any term of this license.
+Upon termination, you must destroy all copies of the Software in your
+possession or control.
+
+The copyright holder reserves the right to pursue any and all legal
+remedies available under applicable law for any violation of this license.
+
+──────────────────────────────────────────────────────────────────────────── 7. GOVERNING LAW
+────────────────────────────────────────────────────────────────────────────
+
+This license shall be governed by and construed in accordance with
+applicable international copyright law and the laws of the jurisdiction
+in which the copyright holder resides, without regard to conflict of
+law principles.
+
+──────────────────────────────────────────────────────────────────────────── 8. ENTIRE AGREEMENT
+────────────────────────────────────────────────────────────────────────────
+
+This license constitutes the entire agreement between you and the copyright
+holder with respect to the subject matter hereof and supersedes all prior
+or contemporaneous understandings, agreements, representations, and
+warranties, whether written or oral.
+
+────────────────────────────────────────────────────────────────────────────
+
+For permissions beyond the scope of this license, contact:
+contact@cinemaly.app
