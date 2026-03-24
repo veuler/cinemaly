@@ -194,7 +194,7 @@ export default function Home() {
         )}
       </div>
 
-      <main className="relative z-10 flex-1 pt-24 md:pt-32 pb-10 md:pb-16 px-4 sm:px-6 flex flex-col items-center justify-center w-full">
+      <main className="relative z-10 flex-1 pt-24 md:pt-32 pb-10 md:pb-16 px-0 sm:px-6 flex flex-col items-center justify-center w-full">
         <div className="max-w-3xl w-full bg-stone-900/35 backdrop-blur-3xl p-6 sm:p-8 md:p-12 rounded-3xl md:rounded-4xl border border-stone-700/40 shadow-2xl shadow-black/60 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-amber-500/8 blur-[100px] pointer-events-none"></div>
 
@@ -317,6 +317,21 @@ export default function Home() {
                 Share with Anyone
               </span>
             </div>
+          </div>
+          <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
+          <div className="-mx-6 sm:mx-0 relative">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/video-poster.jpg"
+              className="w-full h-auto object-cover sm:rounded-2xl border-y sm:border-x border-stone-800/50 shadow-2xl shadow-amber-500/10 aspect-video"
+            >
+              <source src="/cinemaly-promo.webm" type="video/webm" />
+              <source src="/cinemaly-promo.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
 
