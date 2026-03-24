@@ -324,8 +324,12 @@ export default function Home() {
               autoPlay
               loop
               muted
+              // @ts-expect-error
+              defaultMuted
               playsInline
-              preload="metadata"
+              webkit-playsinline="true"
+              x5-playsinline="true"
+              preload="auto"
               poster="/video-poster.jpg"
               className="w-full h-auto object-cover sm:rounded-2xl border-y sm:border-x border-stone-800/50 shadow-2xl shadow-amber-500/10 aspect-video"
             >
