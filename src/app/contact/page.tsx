@@ -10,6 +10,15 @@ export const metadata: Metadata = {
     title: "Contact - Cinemaly",
     description: "Get in touch with us.",
     url: "/contact",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cinemaly - Cinematic Travel Documentation",
+      },
+    ],
   },
 };
 

@@ -13,6 +13,15 @@ export const metadata: Metadata = {
     description:
       "Tips, guides, and stories about cinematic travel documentation.",
     url: "/blog",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cinemaly - Cinematic Travel Documentation",
+      },
+    ],
   },
 };
 

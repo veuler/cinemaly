@@ -19,6 +19,15 @@ export const metadata: Metadata = {
     description:
       "Learn how Cinemaly turns your photos and travel route into an interactive cinematic map. No login needed, zero data stored, works entirely in your browser.",
     url: "/guide",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Cinemaly - Cinematic Travel Documentation",
+      },
+    ],
   },
 };
 
