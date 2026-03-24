@@ -28,6 +28,7 @@ export default function Home() {
   const [cityImages, setCityImages] = useState<FileList | null>(null);
   const cityImagesInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [autoplayFailed, setAutoplayFailed] = useState(false);
 
   useEffect(() => {
     if (videoRef.current) {
@@ -35,11 +36,18 @@ export default function Home() {
 
       if (playPromise !== undefined) {
         playPromise.catch((error) => {
-          console.warn("Opera blocked JS autoplay, How sad...", error);
+          setAutoplayFailed(true);
         });
       }
     }
   }, []);
+
+  const handleManualPlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setAutoplayFailed(false);
+    }
+  };
 
   const [alertConfig, setAlertConfig] = useState<{
     message: string;
@@ -332,13 +340,13 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
-          <div className="-mx-6 sm:mx-0 relative">
+          <div className="-mx-6 sm:mx-0 relative flex justify-center items-center">
             <video
               ref={videoRef}
               autoPlay
               loop
               muted
-              // @ts-expect-error
+              // @ts-expect-error - React types missing defaultMuted for browser bypass
               defaultMuted
               playsInline
               webkit-playsinline="true"
@@ -350,6 +358,22 @@ export default function Home() {
               <source src="/cinemaly-promo.webm" type="video/webm" />
               <source src="/cinemaly-promo.mp4" type="video/mp4" />
             </video>
+
+            {autoplayFailed && (
+              <button
+                onClick={handleManualPlay}
+                className="absolute z-10 flex items-center justify-center w-16 h-16 rounded-full bg-stone-900/60 backdrop-blur-md border border-stone-700 hover:bg-amber-500/20 hover:border-amber-500 transition-all duration-300"
+                aria-label="Play Video"
+              >
+                <svg
+                  className="w-8 h-8 text-white ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </button>
+            )}
           </div>
           <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
 
