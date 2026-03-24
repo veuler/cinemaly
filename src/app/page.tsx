@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { generatePolyglotCapsule } from "../utils/polyglotBuilder";
 
 import { Lexend_Giga, Lexend_Tera } from "next/font/google";
@@ -27,6 +27,19 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [cityImages, setCityImages] = useState<FileList | null>(null);
   const cityImagesInputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.warn("Opera blocked JS autoplay, How sad...", error);
+        });
+      }
+    }
+  }, []);
 
   const [alertConfig, setAlertConfig] = useState<{
     message: string;
@@ -321,6 +334,7 @@ export default function Home() {
           <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
           <div className="-mx-6 sm:mx-0 relative">
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
