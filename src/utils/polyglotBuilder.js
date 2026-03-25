@@ -78,9 +78,24 @@ export async function generatePolyglotCapsule(galleryFiles, citiesArray) {
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
 
     <style>
-        body { margin: 0; padding: 0; background: #0a0a0a; font-family: sans-serif; }
+        html, body { 
+            margin: 0; 
+            padding: 0; 
+            background: #0a0a0a; 
+            font-family: sans-serif; 
+            overflow-x: hidden; /* KÖR NOKTA KİLİDİ: Yatay kaymayı sonsuza dek bitirir */
+            width: 100%;
+            position: relative;
+        }
         
-        #root { color: white; font-size: 16px; min-height: 100vh; min-height: 100svh; }
+        #root { 
+            color: white; 
+            font-size: 16px; 
+            min-height: 100vh; 
+            min-height: 100svh; 
+            overflow-x: hidden;
+            width: 100%;
+        }
         
         .dropzone { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(10,10,10,0.95); z-index: 50; }
         .dropzone h1 { text-align: center; color: white; letter-spacing: 3px; font-weight: bold; font-size: 2rem; }

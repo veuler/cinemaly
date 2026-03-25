@@ -17,6 +17,105 @@ const lexendTera = Lexend_Tera({
 
 export const runtime = "edge";
 
+// YENİ: Hem Kapak Yapılabilen Hem Silinebilen Thumbnail Bileşeni
+const ImageThumbnail = ({
+  file,
+  isCover,
+  onMakeCover,
+  onRemove, // YENİ: Silme fonksiyonu proptan geliyor
+}: {
+  file: File;
+  isCover: boolean;
+  onMakeCover: () => void;
+  onRemove: () => void;
+}) => {
+  const [url, setUrl] = useState<string>("");
+
+  useEffect(() => {
+    const objectUrl = URL.createObjectURL(file);
+    setUrl(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [file]);
+
+  return (
+    <div
+      className={`relative shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border-2 transition-all group ${
+        isCover
+          ? "border-amber-500 shadow-[0_0_10px_-2px_rgba(245,158,11,0.5)]"
+          : "border-stone-700 opacity-80 hover:opacity-100"
+      }`}
+    >
+      {url && (
+        <img src={url} className="w-full h-full object-cover" alt="thumbnail" />
+      )}
+
+      {isCover && (
+        <span className="absolute top-0 left-0 bg-amber-500 text-stone-900 text-[9px] md:text-[10px] font-black px-1.5 py-0.5 rounded-br-lg z-10 pointer-events-none">
+          COVER
+        </span>
+      )}
+
+      {/* YENİ: Silme Çarpısı (Mobilde hep görünür, masaüstünde hover ile) */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation(); // KÖR NOKTA KİLİDİ: Tıklamanın "Make Cover" butonuna da sekmesini engeller
+          onRemove();
+        }}
+        className="absolute top-1 right-1 w-5 h-5 bg-rose-600/90 hover:bg-rose-500 text-white rounded-md flex items-center justify-center z-20 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all shadow-lg backdrop-blur-[2px]"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-3.5 w-3.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={3}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      {!isCover && (
+        <button
+          onClick={onMakeCover}
+          type="button"
+          className="absolute inset-0 bg-black/60 flex items-center justify-center text-[9px] md:text-[10px] font-bold text-white opacity-0 md:group-hover:opacity-100 transition-opacity z-10 backdrop-blur-[1px]"
+        >
+          MAKE COVER
+        </button>
+      )}
+    </div>
+  );
+};
+
+const MiniThumbnail = ({ file, isCover }: { file: File; isCover: boolean }) => {
+  const [url, setUrl] = useState<string>("");
+
+  useEffect(() => {
+    const objectUrl = URL.createObjectURL(file);
+    setUrl(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl); // Ekrandan silinince RAM'i boşalt
+  }, [file]);
+
+  return (
+    <div
+      className={`shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border transition-all ${
+        isCover
+          ? "border-amber-500/80 shadow-[0_0_8px_-2px_rgba(245,158,11,0.4)]"
+          : "border-stone-700/50"
+      }`}
+    >
+      {url && (
+        <img src={url} className="w-full h-full object-cover" alt="mini" />
+      )}
+    </div>
+  );
+};
 export default function Home() {
   const [galleryImages, setGalleryImages] = useState<FileList | null>(null);
   const [cities, setCities] = useState<
@@ -24,8 +123,10 @@ export default function Home() {
   >([]);
   const [cityInput, setCityInput] = useState("");
   const [noteInput, setNoteInput] = useState("");
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
+
   const [isGenerating, setIsGenerating] = useState(false);
-  const [cityImages, setCityImages] = useState<FileList | null>(null);
+  const [cityImages, setCityImages] = useState<File[]>([]);
   const cityImagesInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [autoplayFailed, setAutoplayFailed] = useState(false);
@@ -64,6 +165,75 @@ export default function Home() {
     }, 5500);
   };
 
+  const handleEditCity = (index: number) => {
+    const city = cities[index];
+    setCityInput(city.isim);
+    setNoteInput(city.not);
+    setEditingIndex(index);
+
+    if (city.images && city.images.length > 0) {
+      // ÇÖZÜM: State'e FileList değil, objenin içindeki saf Array'i (File[]) veriyoruz
+      setCityImages([...city.images]);
+
+      // DataTransfer hilesini SADECE HTML input'unu görsel olarak doldurmak için tutuyoruz
+      const dt = new DataTransfer();
+      city.images.forEach((file) => dt.items.add(file));
+      if (cityImagesInputRef.current) {
+        cityImagesInputRef.current.files = dt.files;
+      }
+    } else {
+      setCityImages([]); // null değil, boş array atıyoruz
+      if (cityImagesInputRef.current) {
+        cityImagesInputRef.current.value = "";
+      }
+    }
+
+    // UX: Kullanıcıyı formun başladığı yere dinamik ve kusursuz şekilde kaydırır
+    setTimeout(() => {
+      document.getElementById("form-start-point")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 50);
+  };
+
+  const handleMakeCover = (index: number) => {
+    const updated = [...cityImages];
+    const [selected] = updated.splice(index, 1); // Seçileni array'den kopar
+    updated.unshift(selected); // Array'in en başına (Index 0) yerleştir
+    setCityImages(updated);
+
+    // HTML input'un içini de yeni sıralamaya göre senkronize et (DataTransfer Hack)
+    const dt = new DataTransfer();
+    updated.forEach((file) => dt.items.add(file));
+    if (cityImagesInputRef.current) {
+      cityImagesInputRef.current.files = dt.files;
+    }
+  };
+
+  // YENİ: Resim Silme ve HTML Input'u Senkronize Etme
+  const handleRemoveImage = (indexToRemove: number) => {
+    setCityImages((prev) => {
+      const updated = prev.filter((_, idx) => idx !== indexToRemove);
+
+      // DataTransfer ile HTML Input'unu da güncelleyip tutarsızlığı önlüyoruz
+      const dt = new DataTransfer();
+      updated.forEach((file) => dt.items.add(file));
+      if (cityImagesInputRef.current) {
+        cityImagesInputRef.current.files = dt.files;
+      }
+      return updated;
+    });
+  };
+
+  const handleCancelEdit = () => {
+    setCityInput("");
+    setNoteInput("");
+    setCityImages([]);
+    setEditingIndex(null);
+    if (cityImagesInputRef.current) cityImagesInputRef.current.value = "";
+  };
+
   const handleAddCity = () => {
     if (cityInput.trim() === "") {
       showNotification("City or region name is required.", "error");
@@ -75,22 +245,32 @@ export default function Home() {
       return;
     }
 
-    setCities([
-      ...cities,
-      {
-        isim: cityInput.trim(),
-        not: noteInput.trim(),
-        images: cityImages ? Array.from(cityImages) : [],
-      },
-    ]);
+    const newCityData = {
+      isim: cityInput.trim(),
+      not: noteInput.trim(),
+      images: cityImages ? Array.from(cityImages) : [],
+    };
 
-    setCityInput("");
-    setNoteInput("");
-    setCityImages(null);
-    if (cityImagesInputRef.current) cityImagesInputRef.current.value = "";
+    if (editingIndex !== null) {
+      const updatedCities = [...cities];
+      updatedCities[editingIndex] = newCityData;
+      setCities(updatedCities);
+      showNotification("Route successfully updated.", "success");
+    } else {
+      setCities([...cities, newCityData]);
+    }
+
+    handleCancelEdit();
   };
 
   const handleGenerate = async () => {
+    if (editingIndex !== null) {
+      showNotification(
+        "Please finish or cancel your edit before compiling the capsule.",
+        "error",
+      );
+      return;
+    }
     const hasCityImages = cities.some(
       (city) => city.images && city.images.length > 0,
     );
@@ -346,8 +526,6 @@ export default function Home() {
               autoPlay
               loop
               muted
-              // @ts-expect-error - React types missing defaultMuted for browser bypass
-              defaultMuted
               playsInline
               webkit-playsinline="true"
               x5-playsinline="true"
@@ -377,7 +555,10 @@ export default function Home() {
           </div>
           <div className="w-full max-w-3xl mx-auto h-px bg-linear-to-r from-transparent via-amber-500/40 to-transparent mt-8 mb-6 md:mt-10 md:mb-8"></div>
 
-          <div className="relative z-10 space-y-8 md:space-y-10">
+          <div
+            id="form-start-point"
+            className="relative z-10 space-y-8 md:space-y-10"
+          >
             <div>
               <label className="flex items-center gap-2 text-xs md:text-sm font-bold text-stone-200 mb-3 md:mb-4 uppercase tracking-wider">
                 <span className="w-6 h-6 rounded-md bg-amber-500/15 flex items-center justify-center">
@@ -524,29 +705,112 @@ export default function Home() {
                     type="file"
                     accept="image/jpeg, image/png, image/webp"
                     multiple
-                    onChange={(e) => setCityImages(e.target.files)}
+                    onChange={(e) => {
+                      if (e.target.files) {
+                        const newFiles = Array.from(e.target.files);
+                        setCityImages((prev) => {
+                          const updated = [...prev, ...newFiles];
+
+                          const dt = new DataTransfer();
+                          updated.forEach((file) => dt.items.add(file));
+                          if (cityImagesInputRef.current) {
+                            cityImagesInputRef.current.files = dt.files;
+                          }
+                          return updated;
+                        });
+                      }
+                    }}
                     className="w-full bg-stone-900/80 border border-stone-700/60 rounded-xl p-3 text-xs text-stone-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-500/10 file:text-amber-400 hover:file:bg-amber-500/20 transition-all cursor-pointer"
                   />
+                  {cityImages.length > 0 && (
+                    <div className="mt-3 flex items-center gap-2 px-1 text-[11px] text-amber-400/80 font-medium italic">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-3.5 h-3.5 shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      Cover photos will appear on the map above the cities.
+                      Click an image to set it as a cover.
+                    </div>
+                  )}
+                  {/* YENİ: Cover Photo Grid */}
+                  {cityImages.length > 0 && (
+                    <div className="mt-3 flex gap-2 overflow-x-auto pb-2 custom-scrollbar">
+                      {cityImages.map((file, idx) => (
+                        <ImageThumbnail
+                          key={`${file.name}-${idx}`}
+                          file={file}
+                          isCover={idx < 3}
+                          onMakeCover={() => handleMakeCover(idx)}
+                          onRemove={() => handleRemoveImage(idx)} // YENİ EKLENDİ
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-                <button
-                  onClick={handleAddCity}
-                  className="w-full py-3 md:py-3.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 rounded-xl text-sm md:text-base font-semibold transition-all flex items-center justify-center gap-2 border border-amber-500/25 hover:border-amber-400/50 hover:shadow-[0_0_20px_-8px_rgba(245,158,11,0.4)]"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 md:h-4.5 md:w-4.5"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+                <div className="flex gap-2 w-full">
+                  {editingIndex !== null && (
+                    <button
+                      onClick={handleCancelEdit}
+                      className="px-4 py-3 md:py-3.5 bg-stone-800 hover:bg-stone-700 text-stone-300 rounded-xl text-sm md:text-base font-semibold transition-all border border-stone-700 hover:border-stone-500"
+                    >
+                      Cancel
+                    </button>
+                  )}
+                  <button
+                    onClick={handleAddCity}
+                    className={`flex-1 py-3 md:py-3.5 rounded-xl text-sm md:text-base font-semibold transition-all flex items-center justify-center gap-2 border ${
+                      editingIndex !== null
+                        ? "bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 hover:text-blue-200 border-blue-500/25 hover:border-blue-400/50 hover:shadow-[0_0_20px_-8px_rgba(59,130,246,0.4)]"
+                        : "bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 hover:text-amber-200 border-amber-500/25 hover:border-amber-400/50 hover:shadow-[0_0_20px_-8px_rgba(245,158,11,0.4)]"
+                    }`}
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Add to Route
-                </button>
+                    {editingIndex !== null ? (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 md:h-4.5 md:w-4.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                          />
+                        </svg>
+                        Update Route
+                      </>
+                    ) : (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-4 w-4 md:h-4.5 md:w-4.5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        Add to Route
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
 
               {cities.length > 0 && (
@@ -554,12 +818,29 @@ export default function Home() {
                   {cities.map((city, index) => (
                     <div
                       key={index}
-                      className="bg-stone-900/60 p-4 md:p-5 rounded-xl md:rounded-2xl border border-stone-700/50 relative overflow-hidden group hover:border-stone-600/60 transition-all duration-200 hover:shadow-[0_2px_20px_-8px_rgba(0,0,0,0.5)]"
+                      onClick={() => handleEditCity(index)}
+                      className={`p-4 md:p-5 rounded-xl md:rounded-2xl border relative overflow-hidden group transition-all duration-200 hover:shadow-[0_2px_20px_-8px_rgba(0,0,0,0.5)] cursor-pointer ${
+                        editingIndex === index
+                          ? "bg-blue-900/20 border-blue-500/50"
+                          : "bg-stone-900/60 border-stone-700/50 hover:border-stone-600/60"
+                      }`}
                     >
-                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-amber-300 to-orange-500 rounded-l-xl"></div>
+                      <div
+                        className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-xl ${
+                          editingIndex === index
+                            ? "bg-linear-to-b from-blue-400 to-indigo-500"
+                            : "bg-linear-to-b from-amber-300 to-orange-500"
+                        }`}
+                      ></div>
                       <div className="flex items-start gap-3 ml-2">
-                        <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center text-[10px] font-bold text-amber-400">
-                          {index + 1}
+                        <span
+                          className={`mt-0.5 shrink-0 px-2.5 py-1 rounded-md flex items-center justify-center text-[9px] md:text-[10px] font-black uppercase tracking-wider transition-colors border ${
+                            editingIndex === index
+                              ? "bg-rose-500/15 text-rose-400 border-rose-500/30 shadow-[0_0_10px_-2px_rgba(244,63,94,0.4)]"
+                              : "bg-stone-800 text-stone-400 border-stone-700 group-hover:bg-amber-500/10 group-hover:text-amber-400 group-hover:border-amber-500/30"
+                          }`}
+                        >
+                          {editingIndex === index ? "Editing" : "Edit"}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -591,6 +872,27 @@ export default function Home() {
                             <p className="text-xs md:text-sm text-stone-400 mt-1.5 leading-relaxed">
                               {city.not}
                             </p>
+                          )}
+                          {city.images && city.images.length > 0 && (
+                            <div className="mt-3 flex gap-1.5 md:gap-2">
+                              {city.images.slice(0, 6).map((file, imgIdx) => (
+                                <div
+                                  key={`mini-${imgIdx}`}
+                                  className="relative"
+                                >
+                                  <MiniThumbnail
+                                    file={file}
+                                    isCover={imgIdx < 3} // Yine ilk 3'üne hafif sarı çerçeve veriyoruz
+                                  />
+                                  {/* 6. resimdeysek ve daha fazlası varsa, üzerine karartma ve +X yazısı atıyoruz */}
+                                  {imgIdx === 5 && city.images.length > 6 && (
+                                    <div className="absolute inset-0 bg-stone-950/80 backdrop-blur-[2px] rounded-md flex items-center justify-center text-amber-400 text-[10px] md:text-xs font-black z-10 border border-amber-500/30">
+                                      +{city.images.length - 5}
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
                           )}
                         </div>
                       </div>
