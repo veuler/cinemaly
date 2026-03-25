@@ -21,24 +21,6 @@ const CapsuleApp = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: (i) => ({
-      scale: 0.1,
-      opacity: 0,
-      y: 250,
-      x: i % 3 === 0 ? -150 : i % 3 === 2 ? 150 : 0,
-      rotate: i % 2 === 0 ? 25 : -25,
-    }),
-    visible: {
-      scale: 1,
-      opacity: 1,
-      y: 0,
-      x: 0,
-      rotate: 0,
-      transition: { type: "spring", stiffness: 60, damping: 14, mass: 1 },
-    },
-  };
-
   const processCapsuleFile = async (file) => {
     setStage("unzipping");
     try {
@@ -204,8 +186,8 @@ const CapsuleApp = () => {
                 zoom: isMobileDevice ? 11.5 : 13,
                 pitch: isMobileDevice ? 50 : 70,
                 bearing: -10,
-                speed: isMobileDevice ? 0.5 : 0.5,
-                curve: isMobileDevice ? 2.0 : 1.2,
+                speed: 0.35,
+                curve: 2.5,
                 essential: true,
               });
 
@@ -235,7 +217,64 @@ const CapsuleApp = () => {
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
+  useEffect(() => {
+    if (selectedImg) {
+      const preventScroll = (e) => {
+        e.preventDefault();
+      };
 
+      window.addEventListener("touchmove", preventScroll, { passive: false });
+      window.addEventListener("wheel", preventScroll, { passive: false });
+
+      return () => {
+        window.removeEventListener("touchmove", preventScroll);
+        window.removeEventListener("wheel", preventScroll);
+      };
+    }
+  }, [selectedImg]);
+  useEffect(() => {
+    if (appStage === "reveal") {
+      const imgObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "100px" },
+      );
+
+      document
+        .querySelectorAll(".lazy-reveal")
+        .forEach((img) => imgObserver.observe(img));
+
+      const galleryEl = document.querySelector(".gallery-section");
+      const mapHider = new IntersectionObserver(
+        (entries) => {
+          const mapDiv = document.getElementById("map-background");
+          if (mapDiv) {
+            mapDiv.style.opacity = entries[0].isIntersecting ? "0" : "1";
+            mapDiv.style.transition = "opacity 0.6s ease";
+            mapDiv.style.pointerEvents = entries[0].isIntersecting
+              ? "none"
+              : "auto";
+          }
+        },
+        {
+          rootMargin: "0px 0px -80% 0px",
+        },
+      );
+
+      if (galleryEl) mapHider.observe(galleryEl);
+
+      return () => {
+        imgObserver.disconnect();
+        if (galleryEl) mapHider.disconnect();
+      };
+    }
+  }, [appStage, gallery, routeData]); // Resimler render olduktan sonra çalışması için dependecy'ler
   const totalLocations = routeData ? routeData.length : 0;
   const totalPhotos =
     (gallery ? gallery.length : 0) +
@@ -425,25 +464,20 @@ const CapsuleApp = () => {
                     style={{ marginBottom: "15px" }}
                   >
                     <h3 className="gallery-category-title">{city.isim}</h3>
-                    <motion.div
-                      className="gallery-grid"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, amount: 0.1 }}
-                      variants={containerVariants}
-                    >
+                    <div className="gallery-grid">
                       {city.imageUrls.map((url, idx) => (
-                        <motion.img
+                        <img
                           key={`city-${cityIndex}-img-${idx}`}
                           custom={idx}
                           src={url}
-                          className="gallery-item"
+                          loading="lazy"
+                          decoding="async"
+                          className="gallery-item lazy-reveal"
                           alt="Memory"
-                          variants={itemVariants}
                           onClick={() => setSelectedImg(url)}
                         />
                       ))}
-                    </motion.div>
+                    </div>
                   </div>
                 );
               })}
@@ -453,25 +487,19 @@ const CapsuleApp = () => {
                   {routeData.some(
                     (c) => c.imageUrls && c.imageUrls.length > 0,
                   ) && <h3 className="gallery-category-title">OTHER</h3>}
-                  <motion.div
-                    className="gallery-grid"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                    variants={containerVariants}
-                  >
+                  <div className="gallery-grid">
                     {gallery.map((url, index) => (
-                      <motion.img
+                      <img
                         key={`general-img-${index}`}
-                        custom={index}
                         src={url}
-                        className="gallery-item"
+                        loading="lazy"
+                        decoding="async"
+                        className="gallery-item lazy-reveal"
                         alt="Memory"
-                        variants={itemVariants}
                         onClick={() => setSelectedImg(url)}
                       />
                     ))}
-                  </motion.div>
+                  </div>
                 </div>
               )}
             </div>

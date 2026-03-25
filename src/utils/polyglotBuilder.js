@@ -83,7 +83,7 @@ export async function generatePolyglotCapsule(galleryFiles, citiesArray) {
             padding: 0; 
             background: #0a0a0a; 
             font-family: sans-serif; 
-            overflow-x: hidden; /* KÖR NOKTA KİLİDİ: Yatay kaymayı sonsuza dek bitirir */
+            overflow-x: hidden;
             width: 100%;
             position: relative;
         }
@@ -101,9 +101,16 @@ export async function generatePolyglotCapsule(galleryFiles, citiesArray) {
         .dropzone h1 { text-align: center; color: white; letter-spacing: 3px; font-weight: bold; font-size: 2rem; }
         .dropzone h1 span { color: #10b981; }
         
-        #map-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100lvh; z-index: 0; }
+        #map-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; height: 100lvh; z-index: 0; transform: translateZ(0);}
         
-        .scrolly-container { position: relative; z-index: 10; width: 100%; pointer-events: none; }
+        .scrolly-container { 
+            position: relative; 
+            z-index: 10; 
+            width: 100%; 
+            pointer-events: none; 
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+        }
         
         .chapters-wrapper { width: 90%; max-width: 500px; margin: 0 auto; padding-top: 50vh; padding-bottom: 50vh; pointer-events: none; }
         @media (min-width: 768px) { .chapters-wrapper { width: 40%; margin-left: 5%; } }
@@ -191,19 +198,20 @@ export async function generatePolyglotCapsule(galleryFiles, citiesArray) {
         .city-map-name { margin-top: 10px; font-size: 1.1rem; color: #fff; text-shadow: 0 0 15px rgba(245,158,11,0.5); text-transform: uppercase; letter-spacing: 2px; }
         
         .gallery-section {      
-        font-family: "Yomogi", cursive;
-        font-weight: 400;
-        font-style: normal; 
-        background: #111; 
-        padding: 50px 5%; 
-        position: relative; 
-        z-index: 20; 
-        box-shadow: 0 -20px 50px rgba(0,0,0,0.8); 
-        min-height: 100vh; 
-        min-height: 100svh; 
-        pointer-events: auto; 
-            }
-        
+            font-family: "Yomogi", cursive;
+            font-weight: 400;
+            font-style: normal; 
+            background: #111; 
+            padding: 50px 5% 15vh 5%;
+            position: relative; 
+            z-index: 20; 
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.8); 
+            min-height: 100vh; 
+            min-height: 100svh; 
+            pointer-events: auto;
+            contain: paint style layout;
+        }
+   
         .gallery-category-title {
             font-family: "Yomogi", cursive;
         /* I wonder can Cloudflare find me in this mess? hehe. */
@@ -227,12 +235,27 @@ export async function generatePolyglotCapsule(galleryFiles, citiesArray) {
         @media (max-width: 1024px) { .gallery-grid { column-count: 2; } }
         @media (max-width: 640px) { .gallery-grid { column-count: 2; column-gap: 0.75rem; } } 
         
-        .gallery-item { width: 100%; margin-bottom: 1.5rem; border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: zoom-in; display: block; break-inside: avoid; }
+        .gallery-item {content-visibility: auto; contain-intrinsic-size: 300px; width: 100%; margin-bottom: 1.5rem; border-radius: 16px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: zoom-in; display: block; break-inside: avoid; }
         @media (max-width: 640px) { .gallery-item { margin-bottom: 0.75rem; border-radius: 12px; } }
         
         .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(16,185,129,0.15); }
         .neon-dot { width: 15px; height: 15px; background: #10b981; border-radius: 50%; box-shadow: 0 0 15px #10b981; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+        .lazy-reveal {
+            opacity: 0;
+            /* Resimlerin başlama noktasını --startX değişkeni belirler */
+            transform: translate(var(--startX, 0), 40px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .lazy-reveal.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+            .gallery-item:nth-child(even) { --startX: 60px; }
+        .gallery-item:nth-child(odd) { --startX: -60px; }
     </style>
 </head>
 <body>
