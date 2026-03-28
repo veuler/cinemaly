@@ -2,7 +2,13 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const runtime = "edge";
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return Object.keys(postsMeta).map((slug) => ({
+    slug: slug,
+  }));
+}
 
 const postsMeta: Record<
   string,
