@@ -106,6 +106,7 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="min-h-screen bg-stone-950 text-stone-200 font-sans antialiased">
       <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-24">
         <Link
+          prefetch={false}
           href="/blog"
           className="inline-flex items-center gap-2 text-[10px] font-bold text-stone-500 hover:text-amber-400 transition-colors mb-10 uppercase tracking-widest"
         >
@@ -173,6 +174,7 @@ export default async function BlogPostPage({ params }: Props) {
             No account. No subscription. Runs entirely in your browser.
           </p>
           <Link
+            prefetch={false}
             href="/"
             className="inline-flex items-center gap-2 py-3 px-6 bg-linear-to-r from-amber-500 to-orange-500 text-stone-950 font-black text-xs rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all hover:-translate-y-0.5 uppercase tracking-wide shadow-[0_0_20px_-8px_rgba(245,158,11,0.5)]"
           >
