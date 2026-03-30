@@ -21,21 +21,18 @@ function NavLogo() {
 
           <div className="flex items-center gap-5 md:gap-8">
             <Link
-              prefetch={false}
               href="/guide"
               className="text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >
               Guide
             </Link>
             <Link
-              prefetch={false}
               href="/contact"
               className="text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >
               Contact
             </Link>
             <Link
-              prefetch={false}
               href="/blog"
               className="text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >

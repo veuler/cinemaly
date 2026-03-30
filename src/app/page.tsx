@@ -15,14 +15,11 @@ const lexendTera = Lexend_Tera({
   display: "swap",
 });
 
-export const runtime = "edge";
-
-// YENİ: Hem Kapak Yapılabilen Hem Silinebilen Thumbnail Bileşeni
 const ImageThumbnail = ({
   file,
   isCover,
   onMakeCover,
-  onRemove, // YENİ: Silme fonksiyonu proptan geliyor
+  onRemove,
 }: {
   file: File;
   isCover: boolean;
@@ -55,11 +52,10 @@ const ImageThumbnail = ({
         </span>
       )}
 
-      {/* YENİ: Silme Çarpısı (Mobilde hep görünür, masaüstünde hover ile) */}
       <button
         type="button"
         onClick={(e) => {
-          e.stopPropagation(); // KÖR NOKTA KİLİDİ: Tıklamanın "Make Cover" butonuna da sekmesini engeller
+          e.stopPropagation();
           onRemove();
         }}
         className="absolute top-1 right-1 w-5 h-5 bg-rose-600/90 hover:bg-rose-500 text-white rounded-md flex items-center justify-center z-20 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all shadow-lg backdrop-blur-[2px]"
@@ -99,7 +95,7 @@ const MiniThumbnail = ({ file, isCover }: { file: File; isCover: boolean }) => {
   useEffect(() => {
     const objectUrl = URL.createObjectURL(file);
     setUrl(objectUrl);
-    return () => URL.revokeObjectURL(objectUrl); // Ekrandan silinince RAM'i boşalt
+    return () => URL.revokeObjectURL(objectUrl);
   }, [file]);
 
   return (
@@ -172,23 +168,20 @@ export default function Home() {
     setEditingIndex(index);
 
     if (city.images && city.images.length > 0) {
-      // ÇÖZÜM: State'e FileList değil, objenin içindeki saf Array'i (File[]) veriyoruz
       setCityImages([...city.images]);
 
-      // DataTransfer hilesini SADECE HTML input'unu görsel olarak doldurmak için tutuyoruz
       const dt = new DataTransfer();
       city.images.forEach((file) => dt.items.add(file));
       if (cityImagesInputRef.current) {
         cityImagesInputRef.current.files = dt.files;
       }
     } else {
-      setCityImages([]); // null değil, boş array atıyoruz
+      setCityImages([]);
       if (cityImagesInputRef.current) {
         cityImagesInputRef.current.value = "";
       }
     }
 
-    // UX: Kullanıcıyı formun başladığı yere dinamik ve kusursuz şekilde kaydırır
     setTimeout(() => {
       document.getElementById("form-start-point")?.scrollIntoView({
         behavior: "smooth",
@@ -199,11 +192,10 @@ export default function Home() {
 
   const handleMakeCover = (index: number) => {
     const updated = [...cityImages];
-    const [selected] = updated.splice(index, 1); // Seçileni array'den kopar
-    updated.unshift(selected); // Array'in en başına (Index 0) yerleştir
+    const [selected] = updated.splice(index, 1);
+    updated.unshift(selected);
     setCityImages(updated);
 
-    // HTML input'un içini de yeni sıralamaya göre senkronize et (DataTransfer Hack)
     const dt = new DataTransfer();
     updated.forEach((file) => dt.items.add(file));
     if (cityImagesInputRef.current) {
@@ -211,12 +203,10 @@ export default function Home() {
     }
   };
 
-  // YENİ: Resim Silme ve HTML Input'u Senkronize Etme
   const handleRemoveImage = (indexToRemove: number) => {
     setCityImages((prev) => {
       const updated = prev.filter((_, idx) => idx !== indexToRemove);
 
-      // DataTransfer ile HTML Input'unu da güncelleyip tutarsızlığı önlüyoruz
       const dt = new DataTransfer();
       updated.forEach((file) => dt.items.add(file));
       if (cityImagesInputRef.current) {
@@ -751,7 +741,7 @@ export default function Home() {
                           file={file}
                           isCover={idx < 3}
                           onMakeCover={() => handleMakeCover(idx)}
-                          onRemove={() => handleRemoveImage(idx)} // YENİ EKLENDİ
+                          onRemove={() => handleRemoveImage(idx)}
                         />
                       ))}
                     </div>
@@ -882,7 +872,7 @@ export default function Home() {
                                 >
                                   <MiniThumbnail
                                     file={file}
-                                    isCover={imgIdx < 3} // Yine ilk 3'üne hafif sarı çerçeve veriyoruz
+                                    isCover={imgIdx < 3}
                                   />
                                   {/* 6. resimdeysek ve daha fazlası varsa, üzerine karartma ve +X yazısı atıyoruz */}
                                   {imgIdx === 5 && city.images.length > 6 && (

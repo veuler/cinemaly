@@ -1,8 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
-export const runtime = "edge";
-
 export const metadata: Metadata = {
   title: "Blog",
   description:
@@ -78,7 +76,6 @@ export default function BlogPage() {
         <div className="flex flex-col gap-6">
           {posts.map((post) => (
             <Link
-              prefetch={false}
               key={post.slug}
               href={`/blog/${post.slug}`}
               className="group bg-stone-900/30 border border-stone-800/60 hover:border-stone-700/80 rounded-2xl p-6 transition-all duration-200 hover:shadow-[0_4px_24px_-8px_rgba(0,0,0,0.5)]"

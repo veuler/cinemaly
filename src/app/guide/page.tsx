@@ -7,8 +7,6 @@ const lexendGiga = Lexend_Giga({
   display: "swap",
 });
 
-export const runtime = "edge";
-
 export const metadata: Metadata = {
   title: "The Polyglot Engine — How Cinemaly Works",
   description:
@@ -679,7 +677,6 @@ export default function Guide() {
 
           <div className="text-center">
             <Link
-              prefetch={false}
               href="/"
               className="inline-flex items-center gap-2.5 py-4 px-8 bg-linear-to-r from-amber-500 to-orange-500 text-stone-950 font-black text-sm rounded-2xl hover:from-amber-400 hover:to-orange-400 transition-all hover:-translate-y-0.5 shadow-[0_0_30px_-10px_rgba(245,158,11,0.5)] hover:shadow-[0_0_40px_-8px_rgba(251,146,60,0.6)]"
             >

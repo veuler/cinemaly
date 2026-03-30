@@ -10,7 +10,7 @@ function Footer() {
         {/* ── TOP SECTION: Logo, Desc & Links ── */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
           <div className="flex flex-col justify-center items-center lg:flex-row gap-5 text-center md:text-left">
-            <Link prefetch={false} href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/logo.png"
                 alt="Cinemaly"
@@ -27,14 +27,12 @@ function Footer() {
           </div>
           <div className="flex items-center gap-6">
             <Link
-              prefetch={false}
               href="/guide"
               className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >
               Guide
             </Link>
             <Link
-              prefetch={false}
               href="/contact"
               className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >
