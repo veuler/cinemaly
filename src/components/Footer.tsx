@@ -16,7 +16,6 @@ function Footer() {
                 alt="Cinemaly"
                 width={120}
                 height={32}
-                priority
                 className="h-12 md:h-16 w-auto"
               />
             </Link>

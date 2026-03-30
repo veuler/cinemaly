@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lexend_Giga, Lexend_Tera } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import NavLogo from "@/components/NavLogo";
@@ -12,6 +12,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const lexendGiga = Lexend_Giga({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lexend-giga", // Tailwind için variable ismi
+});
+
+const lexendTera = Lexend_Tera({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lexend-tera",
 });
 
 export const metadata: Metadata = {
@@ -106,7 +118,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${lexendGiga.variable} ${lexendTera.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <script
