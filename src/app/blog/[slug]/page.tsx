@@ -44,6 +44,13 @@ const postsMeta: Record<
     date: "2026-03-23",
     readTime: "5 min read",
   },
+  "europe-istanbul-trip": {
+    title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
+    description:
+      "A trip isn't a collection of moments. It's a line — a direction of travel, a before and after.",
+    date: "2026-04-02",
+    readTime: "6 min read",
+  },
 };
 
 const postModules: Record<
@@ -57,6 +64,7 @@ const postModules: Record<
     import("../posts/private-travel-documentation.mdx"),
   "amsterdam-belgium-travel": () =>
     import("../posts/amsterdam-belgium-travel.mdx"),
+  "europe-istanbul-trip": () => import("../posts/europe-istanbul-trip.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };

@@ -58,6 +58,14 @@ const posts = [
     date: "2026-03-23",
     readTime: "5 min read",
   },
+  {
+    slug: "europe-istanbul-trip",
+    title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
+    description:
+      "A trip isn't a collection of moments. It's a line — a direction of travel, a before and after.",
+    date: "2026-04-02",
+    readTime: "6 min read",
+  },
 ];
 
 export default function BlogPage() {
