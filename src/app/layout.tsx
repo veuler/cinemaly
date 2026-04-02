@@ -89,11 +89,11 @@ export const metadata: Metadata = {
       "Upload your photos and travel route. Get a stunning, interactive cinematic map — compiled entirely in your browser.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://cinemaly.app/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Cinemaly — Cinematic Travel Documentary",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
