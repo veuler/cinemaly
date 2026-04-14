@@ -50,5 +50,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    {
+      url: "https://cinemaly.app/blog/europe-istanbul-trip",
+      lastModified: new Date("2026-04-02"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
   ];
 }

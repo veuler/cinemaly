@@ -23,7 +23,7 @@ The output file is also a valid `.zip` archive. Open it with 7-Zip or WinRAR to 
 | **No login**         | No account, email, or sign-up required                         |
 | **Zero data stored** | All processing happens in your browser — nothing is uploaded   |
 | **No server**        | The app has no backend. Your photos never leave your device    |
-| **Portable output**  | The generated `.html` file is self-contained and works offline |
+| **Portable output**  | One downloadable file; the viewer loads React, MapLibre, etc. from public CDNs on first open (no Next.js server involved) |
 
 You can verify this yourself: open DevTools → Network tab while creating a capsule. The only external request is to [Nominatim](https://nominatim.org) for city coordinates — no photos, no route data, nothing personal.
 
@@ -66,15 +66,15 @@ When you drop the file back into the app, the JavaScript reads it as an `ArrayBu
 **Web app**
 
 - [Next.js 16](https://nextjs.org) — App Router, Edge Runtime
+- [React 19](https://react.dev) & [TypeScript](https://www.typescriptlang.org)
 - [Tailwind CSS v4](https://tailwindcss.com)
-- [MDX](https://mdxjs.com) — blog system
 
 **Capsule engine**
 
 - [fflate](https://github.com/101arrowz/fflate) — ZIP compression/decompression
 - [MapLibre GL](https://maplibre.org) — interactive 3D map
 - [Framer Motion](https://www.framer.com/motion) — gallery animations
-- [esbuild](https://esbuild.github.io) — compiles `CapsuleApp.jsx` to an embedded IIFE string
+- [esbuild](https://esbuild.github.io) — compiles `CapsuleApp.jsx` to an embedded IIFE string (the opened capsule still uses **React 18** from CDN inside the HTML, separate from the Next.js app)
 
 **Infrastructure**
 
@@ -87,21 +87,26 @@ When you drop the file back into the app, the JavaScript reads it as an `ArrayBu
 
 ```
 cinemaly/
-├── src/app/              # Next.js routes
-│   ├── page.tsx          # Landing page
-│   ├── guide/            # How it works
-│   ├── contact/          # Contact
-│   └── blog/             # Blog (MDX)
-│       └── posts/        # Blog post .mdx files
-├── capsule-src/
-│   └── CapsuleApp.jsx    # React app embedded in the generated capsule
-├── scripts/
-│   └── compile.js        # Compiles CapsuleApp → minified IIFE string
-├── utils/
-│   ├── compiledCapsule.js # Compiled output (committed)
-│   └── polyglotBuilder.js # Builds the polyglot HTML/ZIP file
-├── templates/            # Blog post MDX templates
-└── public/               # Static assets + _headers (CF cache rules)
+├── next.config.ts         # Next.js configuration
+├── src/
+│   ├── app/               # Next.js App Router
+│   │   ├── layout.tsx     # Root layout, fonts, metadata, NavLogo, Footer
+│   │   ├── globals.css
+│   │   ├── page.tsx       # Landing (CapsuleGenerator, PromoVideo)
+│   │   ├── robots.ts
+│   │   ├── sitemap.ts
+│   │   ├── guide/
+│   │   └── contact/
+│   ├── components/        # Shared UI (NavLogo, Footer, CapsuleGenerator, …)
+│   ├── capsule-src/
+│   │   └── CapsuleApp.jsx # React app embedded in the generated capsule
+│   ├── scripts/
+│   │   └── compile.js     # esbuild: CapsuleApp → minified IIFE string
+│   └── utils/
+│       ├── compiledCapsule.js  # Output of compile.js (committed)
+│       └── polyglotBuilder.js  # Builds polyglot HTML/ZIP in the browser
+├── public/                # Static assets, site.webmanifest, _headers (CF)
+└── wrangler.toml
 ```
 
 ---
@@ -124,13 +129,14 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Recompiling the Capsule Engine
 
-If you modify `capsule-src/CapsuleApp.jsx`, recompile before committing:
+If you modify `src/capsule-src/CapsuleApp.jsx`, recompile before committing. Paths inside `compile.js` are relative to **`src`**, so run:
 
 ```bash
+cd src
 node scripts/compile.js
 ```
 
-This updates `utils/compiledCapsule.js` — commit both files together.
+This updates **`src/utils/compiledCapsule.js`** — commit `CapsuleApp.jsx` and `compiledCapsule.js` together.
 
 **Why esbuild instead of the Next.js build?**
 `CapsuleApp.jsx` runs inside the generated `.html` file, not in the Next.js app. It uses React and other libraries from CDN via `window.React`, `window.Motion`, etc. The `tsconfigRaw: { jsx: "react" }` override forces classic JSX transform to avoid implicit `require("react")` calls.
@@ -143,9 +149,11 @@ This updates `utils/compiledCapsule.js` — commit both files together.
 # Install CF tooling (if not already installed)
 npm install -D @cloudflare/next-on-pages wrangler
 
-# Local preview
-npx @cloudflare/next-on-pages
-npx wrangler pages dev
+# Production-style Pages build (see package.json → pages:build)
+npm run pages:build
+
+# Local preview of the Pages output
+npm run preview
 ```
 
 **Build settings in CF Pages dashboard:**
@@ -162,7 +170,7 @@ npx wrangler pages dev
 
 - No API keys or secrets are used anywhere in this codebase
 - The only external service called at runtime is [Nominatim](https://nominatim.openstreetmap.org) (OpenStreetMap geocoding) — called from the user's browser, not from a server
-- The generated capsule file is self-contained HTML/JS — you can inspect every line in `capsule-src/CapsuleApp.jsx` and `utils/polyglotBuilder.js`
+- The generated capsule file is auditable HTML/JS — inspect `src/capsule-src/CapsuleApp.jsx` and `src/utils/polyglotBuilder.js`
 - If your browser or antivirus warns about the downloaded `.html` file, this is a false positive — `.html` files containing JavaScript trigger heuristic warnings by design. The source code is fully auditable here.
 
 ---
