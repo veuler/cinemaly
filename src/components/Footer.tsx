@@ -40,11 +40,30 @@ function Footer() {
           </div>
         </div>
 
-        {/* ── BOTTOM SECTION: Copyright ── */}
+        {/* ── BOTTOM SECTION: Copyright & legal ── */}
         <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 pt-5 border-t border-stone-800/50 text-[10px] text-stone-600">
-          <p className="font-medium tracking-wide">
-            &copy; {currentYear} Cinemaly. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+            <p className="font-medium tracking-wide text-stone-600">
+              &copy; {currentYear} Cinemaly. All rights reserved.
+            </p>
+            <p className="text-[9px] sm:text-[10px] text-stone-600/45 font-normal tracking-wide flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5">
+              <Link
+                href="/terms"
+                className="hover:text-stone-500/80 transition-colors underline-offset-2 hover:underline"
+              >
+                Terms of Use
+              </Link>
+              <span className="text-stone-700/60 select-none" aria-hidden>
+                ·
+              </span>
+              <Link
+                href="/privacy"
+                className="hover:text-stone-500/80 transition-colors underline-offset-2 hover:underline"
+              >
+                Privacy Policy
+              </Link>
+            </p>
+          </div>
           <p className="flex items-center gap-1.5">
             Engineered with{" "}
             <span className="text-amber-500 text-[11px]">⚡</span> for
