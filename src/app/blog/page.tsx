@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Tips, guides, and stories about cinematic travel documentation.",
+    "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no cloud photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog - Cinemaly",
     description:
-      "Tips, guides, and stories about cinematic travel documentation.",
+      "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no cloud photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
     url: "/blog",
     type: "website",
     images: [
@@ -62,7 +62,7 @@ const posts = [
     slug: "europe-istanbul-trip",
     title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
     description:
-      "A trip isn't a collection of moments. It's a line — a direction of travel, a before and after.",
+      "A multi-country route from Paris to Istanbul, 1,400 phone photos, and how mapping the journey in Cinemaly made the whole trip feel shareable again—without another grid of thumbnails or a cloud upload.",
     date: "2026-04-02",
     readTime: "6 min read",
   },

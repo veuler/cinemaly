@@ -7,11 +7,13 @@ import {
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Cinemaly Privacy Policy.",
+  description:
+    "How Cinemaly collects, uses, and protects information when you use the browser-based travel map editor, including local processing, optional analytics, and your choices regarding data.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy — Cinemaly",
-    description: "Cinemaly Privacy Policy.",
+    description:
+      "How Cinemaly handles data when you build cinematic travel maps: what runs in your browser, what we may receive, and how you can control your privacy.",
     url: "/privacy",
     type: "website",
     images: [

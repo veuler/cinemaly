@@ -47,7 +47,7 @@ const postsMeta: Record<
   "europe-istanbul-trip": {
     title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
     description:
-      "A trip isn't a collection of moments. It's a line — a direction of travel, a before and after.",
+      "A multi-country route from Paris to Istanbul, 1,400 phone photos, and how mapping the journey in Cinemaly made the whole trip feel shareable again—without another grid of thumbnails or a cloud upload.",
     date: "2026-04-02",
     readTime: "6 min read",
   },
