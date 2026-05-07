@@ -51,6 +51,14 @@ const postsMeta: Record<
     date: "2026-04-02",
     readTime: "6 min read",
   },
+  "cinemaly-ios-travel-capsule-app": {
+    title:
+      "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",
+    description:
+      "Shipping Cinemaly on iPhone—what App Store review taught us about explaining capsule exports, privacy on iOS, and why mobile uses the self-contained .cnmly package while the web still compiles to .html.",
+    date: "2026-05-07",
+    readTime: "8 min read",
+  },
 };
 
 const postModules: Record<
@@ -65,6 +73,8 @@ const postModules: Record<
   "amsterdam-belgium-travel": () =>
     import("../posts/amsterdam-belgium-travel.mdx"),
   "europe-istanbul-trip": () => import("../posts/europe-istanbul-trip.mdx"),
+  "cinemaly-ios-travel-capsule-app": () =>
+    import("../posts/cinemaly-ios-travel-capsule-app.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };

@@ -66,6 +66,15 @@ const posts = [
     date: "2026-04-02",
     readTime: "6 min read",
   },
+  {
+    slug: "cinemaly-ios-travel-capsule-app",
+    title:
+      "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",
+    description:
+      "What happened when App Store review questioned our capsule export, how we explained the .cnmly format to reviewers and users, and why building on iPhone sharpened the product story.",
+    date: "2026-05-07",
+    readTime: "8 min read",
+  },
 ];
 
 export default function BlogPage() {

@@ -1,0 +1,118 @@
+I submitted Cinemaly to the App Store on a Tuesday afternoon. By Thursday morning I had a rejection.
+
+The reason cited was 2.1 — Performance: App Completeness. The reviewer had gone through the app, reached the export step, and flagged that the output file — a `.cnmly` capsule package — "may not function as expected on all devices." Their concern, as best I could reconstruct it from the rejection note, was that a Cinemaly-specific document type is not something users see every day in the share sheet, and handing one to a user might leave them confused about how to open it or what it contains.
+
+I want to be careful not to be unfair to Apple's review process here, because I think the instinct behind that concern is actually reasonable. A lot of apps ship export features that produce files users can't do anything with. Apple has seen enough of those to develop a healthy skepticism. But in this case, the `.cnmly` file is the entire point — it's a self-contained package that holds your photos, route, and capsule data together (nothing lives on our servers). You open it in Cinemaly; share destinations like Mail, Files, AirDrop, and messaging apps treat it like any other document you're sending on its way. That's one of the things that makes it useful.
+
+Getting that across in a resubmission note turned out to be a more interesting exercise than I expected.
+
+## Why iOS was always going to be a different problem
+
+The Android port was primarily a technical challenge. Android's storage model is complicated, but it gives you room to work. You can produce a file, put it somewhere real on the filesystem, and hand it to the user. The mental model is familiar: make a thing, save it, share it.
+
+iOS doesn't work that way. There's no accessible filesystem in the traditional sense. Apps operate in sandboxes. Files live in app containers or in iCloud, not in a location the user can navigate to directly. Sharing happens through the share sheet, which is flexible and powerful, but it requires thinking about what you're sharing and where it can go.
+
+For a tool whose entire output is a file — a specific, unusual kind of file — this required rethinking not just the implementation but how the experience was communicated to the user.
+
+<Callout>
+  The web version of Cinemaly can explain itself with a `.html` download. The
+  iOS app had to explain itself with a share sheet and a `.cnmly` export, which
+  meant the explanation had to happen before the export, not after.
+</Callout>
+
+## The parts that took longer than expected
+
+<Step
+  num="01"
+  title="Teaching the app to explain the output before the user asked"
+>
+  On the web, when you click "Compile Capsule," a `.html` file downloads and the
+  name of the file — something like `my-trip-to-japan.html` — does a lot of
+  explanatory work on its own. On iOS, the export produces a share sheet with a
+  `.cnmly` capsule attached (same trip data, packaged for mobile). Users who
+  haven't seen a `.cnmly` file before might not know what to do with it. I added
+  a brief, non-intrusive explanation at the export step that describes what the
+  file is, what it does, and where it can go — without making it feel like a
+  tutorial. Getting that explanation short enough to not be annoying and
+  complete enough to not leave people confused took more iteration than I
+  expected.
+</Step>
+
+<Step num="02" title="The App Store review note">
+  After the initial rejection, I wrote a detailed reviewer note explaining
+  exactly what the `.cnmly` format contains (photos and route bundled together),
+  why it opens predictably in Cinemaly, and how the share sheet destinations
+  (Mail, Files, AirDrop, WhatsApp, etc.) all handle the file correctly. I also
+  recorded a short video walkthrough showing the complete flow: building a
+  capsule, exporting it, opening it on a second device. The app was approved on
+  the next review cycle, about four days later. I don't know which part of that
+  made the difference, but I suspect the video helped.
+</Step>
+
+<Step
+  num="03"
+  title="Photo library access on iOS is genuinely good — and more constrained than Android"
+>
+  iOS's photo library API is well-designed. The permission model is clear, the
+  picker is fast, and access to full-resolution images is reliable. What's
+  different from Android is that you get less flexibility over what happens
+  after selection. On Android, I could process images in a native layer before
+  they hit the main thread. On iOS, I had to work within a tighter set of
+  constraints to achieve the same result — not worse, but different, and the
+  difference required rewriting parts of the photo processing pipeline I thought
+  I'd be able to reuse directly from the Android build.
+</Step>
+
+## What iOS actually made better
+
+The rejection delay aside, building for iOS clarified something I hadn't fully articulated before.
+
+Apple's privacy model — the emphasis on local processing, the skepticism about what apps do with user data, the preference for on-device operations — is the same philosophy Cinemaly is built on. Not because I was trying to align with Apple's guidelines, but because both come from the same underlying intuition: your photos are yours, and tools that handle them should treat them that way.
+
+On iOS, this alignment shows up in unexpected places. When a user grants photo library access, iOS displays exactly what the app will be able to see. When the app produces an output file, it goes through the standard iOS share sheet — the same infrastructure the user trusts for sharing anything else. When the app is backgrounded or terminated, nothing is retained server-side, because there's nothing server-side to retain. The privacy guarantees aren't a marketing claim I'm making; they're a consequence of how the app is built, and iOS's architecture makes them legible to the user in a way that doesn't require explanation.
+
+<Compare
+  leftTitle="Typical travel app"
+  rightTitle="Cinemaly for iOS"
+  leftItems={[
+    "Account required to save your work",
+    "Photos uploaded to app's servers",
+    "Trip data retained after you delete the app",
+    "Cloud storage tied to an active subscription",
+  ]}
+  rightItems={[
+    "No account, no sign-in",
+    "Photos processed entirely on your device",
+    "Nothing stored outside your phone",
+    "Output file is yours — forever, offline",
+  ]}
+/>
+
+## Performance on iOS: what changed and what didn't
+
+The honest version of the iOS performance story is similar to Android's, but the specifics differ.
+
+Map rendering on iOS benefits from the same native-vs-browser improvement: direct GPU access, a dedicated render thread, no competition with browser infrastructure. The animated route — the camera pulling from city to city as the user scrolls through the capsule — is smoother than it is in a mobile browser. Not dramatically so on a recent iPhone, but noticeably so on older hardware.
+
+Photo import speed is faster than the web version for the same reason as Android: native file access removes a layer of browser processing. The difference is most visible when importing many photos at once.
+
+What I want to be careful not to oversell: on a recent iPhone with a fast browser, the web version of Cinemaly is already smooth. The native app isn't solving a performance problem that users on good hardware were experiencing. What it's solving is a friction problem — the experience of going from "my photos are on my phone" to "I have a finished capsule" is genuinely faster and more natural when the tool lives on your phone as a first-class app rather than a browser tab.
+
+## The thing the App Store process taught me
+
+I went into the iOS submission expecting the review to be the easy part — the bureaucratic step after the real work is done. That was naive.
+
+The review process forced me to articulate the output format in a way I could explain to someone who had never heard of Cinemaly and was looking at the app for the first time with a checklist. That exercise was useful. It turned up two places where the in-app copy was technically accurate but assumed knowledge the user might not have. I fixed both of them before resubmitting. The shipped version of the iOS app is clearer about what it produces and what that means than the version I submitted initially, and that clarity came directly from having to defend the design to an external reviewer.
+
+I don't think I would have caught those issues on my own. I was too close to the product to see them.
+
+---
+
+_[Cinemaly for iOS is available on the App Store](https://apps.apple.com/us/app/cinemaly/id6763919834). The Android version is on [Google Play](https://play.google.com/store/apps/details?id=app.cinemaly). The browser version remains free at [cinemaly.app](/), where compiling still downloads a `.html` capsule. On iPhone and Android, creating and exporting a capsule uses the `.cnmly` package format so your photos and route stay in one file._
+
+## Related Reads
+
+- [Create a Free Interactive Travel Map With Your Photos](/blog/interactive-travel-map-free)
+- [7 Ways to Document Your Travels Without Cloud Storage](/blog/private-travel-documentation)
+- [Cinemaly on Google Play — Android app](https://play.google.com/store/apps/details?id=app.cinemaly)
+- [Polarsteps vs Cinemaly: Which Should You Use?](/blog/polarsteps-vs-cinemaly)

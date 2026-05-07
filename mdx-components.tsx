@@ -114,14 +114,25 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h3>
     ),
-    a: ({ href, children }) => (
-      <a
-        href={href}
-        className="text-amber-400 border-b border-amber-400/30 hover:border-amber-400 transition-colors duration-150 no-underline"
-      >
-        {children}
-      </a>
-    ),
+    a: ({ href, children, ...props }) => {
+      const isExternal =
+        typeof href === "string" &&
+        (href.startsWith("http://") ||
+          href.startsWith("https://") ||
+          href.startsWith("//"));
+      return (
+        <a
+          href={href}
+          {...props}
+          {...(isExternal
+            ? { target: "_blank", rel: "noopener noreferrer" }
+            : {})}
+          className="text-amber-400 border-b border-amber-400/30 hover:border-amber-400 transition-colors duration-150 no-underline"
+        >
+          {children}
+        </a>
+      );
+    },
     strong: ({ children }) => (
       <strong className="font-bold text-white">{children}</strong>
     ),
