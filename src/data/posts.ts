@@ -120,6 +120,21 @@ const postsUnsorted: PostMeta[] = [
     ],
   },
   {
+    slug: "italy-road-trip-travel-map",
+    title: "How I Mapped My Italy Road Trip Into Something Worth Sharing",
+    description:
+      "Fourteen days driving from Milan to Sicily, 1,800 photos, and how one free tool turned them into an Italy road trip map worth sharing.",
+    date: "2026-05-07",
+    readTime: "6 min read",
+    keywords: [
+      "Italy road trip map",
+      "document road trip photos",
+      "cinematic travel map",
+      "travel route map free",
+      "share trip photos privately",
+    ],
+  },
+  {
     slug: "solo-backpacking-southeast-asia",
     title:
       "How I Documented My Solo Backpacking Trip Without the Cloud",
