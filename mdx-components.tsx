@@ -120,12 +120,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         (href.startsWith("http://") ||
           href.startsWith("https://") ||
           href.startsWith("//"));
+      const isSelfOrStore =
+        typeof href === "string" &&
+        (href.includes("cinemaly.app") ||
+          href.includes("apple.com/") ||
+          href.includes("play.google.com/"));
       return (
         <a
           href={href}
           {...props}
           {...(isExternal
-            ? { target: "_blank", rel: "noopener noreferrer" }
+            ? {
+                target: "_blank",
+                rel: isSelfOrStore
+                  ? "noopener noreferrer"
+                  : "noopener noreferrer nofollow",
+              }
             : {})}
           className="text-amber-400 border-b border-amber-400/30 hover:border-amber-400 transition-colors duration-150 no-underline"
         >

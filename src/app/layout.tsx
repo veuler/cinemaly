@@ -125,6 +125,12 @@ export default function RootLayout({
       className={`${lexendGiga.variable} ${lexendTera.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Cinemaly Blog"
+          href="/feed.xml"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -149,6 +155,25 @@ export default function RootLayout({
                 "Zero data stored",
                 "Offline capable",
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Cinemaly",
+              operatingSystem: "Android, iOS",
+              applicationCategory: "TravelApplication",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              downloadUrl:
+                "https://apps.apple.com/us/app/cinemaly/id6763919834",
             }),
           }}
         />

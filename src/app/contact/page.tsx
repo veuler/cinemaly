@@ -3,6 +3,8 @@ import ContactClient from "./ContactClient";
 
 export const metadata: Metadata = {
   title: "Contact",
+  description:
+    "Get in touch with the Cinemaly team. Questions, feedback, or partnership inquiries about the free, browser-based interactive travel map tool.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact - Cinemaly",

@@ -1,84 +1,53 @@
 import { MetadataRoute } from "next";
 
+import { posts } from "@/data/posts";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const staticEntries: MetadataRoute.Sitemap = [
     {
       url: "https://cinemaly.app",
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-07"),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: "https://cinemaly.app/guide",
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-07"),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: "https://cinemaly.app/contact",
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: "https://cinemaly.app/privacy",
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: "https://cinemaly.app/terms",
-      lastModified: new Date(),
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: "https://cinemaly.app/blog",
-      lastModified: new Date(),
+      lastModified: new Date("2026-05-07"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: "https://cinemaly.app/blog/interactive-travel-map-free",
-      lastModified: new Date("2026-03-22"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/polarsteps-vs-cinemaly",
-      lastModified: new Date("2026-03-22"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/private-travel-documentation",
-      lastModified: new Date("2026-03-23"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/amsterdam-belgium-travel",
-      lastModified: new Date("2026-03-23"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/europe-istanbul-trip",
-      lastModified: new Date("2026-04-02"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/cinemaly-android-travel-capsule-app",
-      lastModified: new Date("2026-04-18"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://cinemaly.app/blog/cinemaly-ios-travel-capsule-app",
-      lastModified: new Date("2026-05-07"),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
   ];
+
+  const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `https://cinemaly.app/blog/${post.slug}`,
+    lastModified: new Date(post.lastModified ?? post.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }

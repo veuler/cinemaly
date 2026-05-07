@@ -1,73 +1,17 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { posts, type PostMeta } from "@/data/posts";
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  return Object.keys(postsMeta).map((slug) => ({
-    slug: slug,
-  }));
+function getPostBySlug(slug: string): PostMeta | undefined {
+  return posts.find((p) => p.slug === slug);
 }
 
-const postsMeta: Record<
-  string,
-  { title: string; description: string; date: string; readTime: string }
-> = {
-  "interactive-travel-map-free": {
-    title: "Create a Free Interactive Travel Map With Your Photos",
-    description:
-      "Want to share your trip as more than a photo dump? Here's how to turn your photos and route into an interactive map — free, no account, runs entirely in your browser.",
-    date: "2026-03-22",
-    readTime: "5 min read",
-  },
-  "polarsteps-vs-cinemaly": {
-    title:
-      "Polarsteps vs Cinemaly: Which Should You Use to Document Your Travels?",
-    description:
-      "Polarsteps tracks you live. Cinemaly compiles after you're home. Both are free — but they make very different trade-offs about where your data lives.",
-    date: "2026-03-22",
-    readTime: "6 min read",
-  },
-  "private-travel-documentation": {
-    title: "7 Ways to Document Your Travels Without Uploading to the Cloud",
-    description:
-      "Seven honest ways to document a trip without uploading your photos to someone else's server — from encrypted apps to browser-based tools.",
-    date: "2026-03-23",
-    readTime: "5 min read",
-  },
-  "amsterdam-belgium-travel": {
-    title:
-      "How I Finally Documented My Amsterdam-Belgium Trip the Way It Actually Felt",
-    description:
-      "Eight days in Amsterdam and Belgium, 600 photos, and no good way to share what it actually felt like — until I tried something different.",
-    date: "2026-03-23",
-    readTime: "5 min read",
-  },
-  "europe-istanbul-trip": {
-    title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
-    description:
-      "A multi-country route from Paris to Istanbul, 1,400 phone photos, and how mapping the journey in Cinemaly made the whole trip feel shareable again—without another grid of thumbnails or a cloud upload.",
-    date: "2026-04-02",
-    readTime: "6 min read",
-  },
-  "cinemaly-android-travel-capsule-app": {
-    title:
-      "Cinemaly for Android: Native Travel Capsules, Sharing, and the .cnmly Format",
-    description:
-      "Shipping Cinemaly on Android—scoped storage, native photo pipelines, share sheets, and why mobile exports a self-contained .cnmly capsule while the browser still compiles to .html.",
-    date: "2026-04-18",
-    readTime: "7 min read",
-  },
-  "cinemaly-ios-travel-capsule-app": {
-    title:
-      "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",
-    description:
-      "Shipping Cinemaly on iPhone—what App Store review taught us about explaining capsule exports, privacy on iOS, and why mobile uses the self-contained .cnmly package while the web still compiles to .html.",
-    date: "2026-05-07",
-    readTime: "8 min read",
-  },
-};
+export async function generateStaticParams() {
+  return posts.map((p) => ({ slug: p.slug }));
+}
 
 const postModules: Record<
   string,
@@ -91,11 +35,12 @@ type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = postsMeta[slug];
+  const post = getPostBySlug(slug);
   if (!post) return {};
   return {
     title: post.title,
     description: post.description,
+    keywords: post.keywords,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
@@ -124,14 +69,81 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = postsMeta[slug];
+  const post = getPostBySlug(slug);
   const loader = postModules[slug];
   if (!post || !loader) notFound();
 
   const { default: Content } = await loader();
 
+  const pageUrl = `https://cinemaly.app/blog/${slug}`;
+  const dateModified = post.lastModified ?? post.date;
+
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified,
+    author: {
+      "@type": "Organization",
+      name: "Cinemaly",
+      url: "https://cinemaly.app",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Cinemaly",
+      url: "https://cinemaly.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://cinemaly.app/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+    image: "https://cinemaly.app/opengraph-image.png",
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://cinemaly.app",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://cinemaly.app/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-stone-950 text-stone-200 font-sans antialiased">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostingJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd),
+        }}
+      />
       <main className="max-w-2xl mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-24">
         <Link
           href="/blog"

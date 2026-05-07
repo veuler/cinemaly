@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+import { posts } from "@/data/posts";
+
 export const metadata: Metadata = {
   title: "Blog",
   description:
@@ -22,69 +24,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const posts = [
-  {
-    slug: "interactive-travel-map-free",
-    title: "Create a Free Interactive Travel Map With Your Photos",
-    description:
-      "A step-by-step guide to turning your travel photos into an interactive map — no account, no subscription, nothing to install.",
-    date: "2026-03-22",
-    readTime: "5 min read",
-  },
-  {
-    slug: "polarsteps-vs-cinemaly",
-    title:
-      "Polarsteps vs Cinemaly: Which Should You Use to Document Your Travels?",
-    description:
-      "If you're trying to decide between them, or just looking for a Polarsteps alternative that doesn't require an account, this comparison should help.",
-    date: "2026-03-22",
-    readTime: "4 min read",
-  },
-  {
-    slug: "private-travel-documentation",
-    title: "7 Ways to Document Your Travels Without Uploading to the Cloud",
-    description:
-      "Here are seven ways to document your travels without handing your photos to a cloud service.",
-    date: "2026-03-23",
-    readTime: "4 min read",
-  },
-  {
-    slug: "amsterdam-belgium-travel",
-    title:
-      "How I Finally Documented My Amsterdam-Belgium Trip the Way It Actually Felt",
-    description:
-      "Eight days in Amsterdam and Belgium, 600 photos, and no good way to share what it actually felt like — until I tried something different.",
-    date: "2026-03-23",
-    readTime: "5 min read",
-  },
-  {
-    slug: "europe-istanbul-trip",
-    title: "From Europe to Istanbul — Documenting the experience with Cinemaly",
-    description:
-      "A multi-country route from Paris to Istanbul, 1,400 phone photos, and how mapping the journey in Cinemaly made the whole trip feel shareable again—without another grid of thumbnails or a cloud upload.",
-    date: "2026-04-02",
-    readTime: "6 min read",
-  },
-  {
-    slug: "cinemaly-android-travel-capsule-app",
-    title:
-      "Cinemaly for Android: Native Travel Capsules, Sharing, and the .cnmly Format",
-    description:
-      "Why we shipped on Android first, how scoped storage and native rendering changed the experience, and how .cnmly capsule exports fit next to the browser’s .html download.",
-    date: "2026-04-18",
-    readTime: "7 min read",
-  },
-  {
-    slug: "cinemaly-ios-travel-capsule-app",
-    title:
-      "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",
-    description:
-      "What happened when App Store review questioned our capsule export, how we explained the .cnmly format to reviewers and users, and why building on iPhone sharpened the product story.",
-    date: "2026-05-07",
-    readTime: "8 min read",
-  },
-];
 
 export default function BlogPage() {
   return (

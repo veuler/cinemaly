@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { posts } from "@/data/posts";
+
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const recentPosts = posts.slice(0, 3);
 
   return (
     <footer className="relative z-10 w-full border-t border-stone-800/50 bg-stone-950/80 backdrop-blur-xl mt-auto">
@@ -24,19 +27,47 @@ function Footer() {
               powered by an autonomous map engine.
             </p>
           </div>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/guide"
-              className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
+          <div className="flex flex-col items-center md:items-end gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-6">
+              <Link
+                href="/guide"
+                className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
+              >
+                Guide
+              </Link>
+              <Link
+                href="/blog"
+                className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/contact"
+                className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
+              >
+                Contact
+              </Link>
+            </div>
+            <nav
+              aria-label="Recent blog posts"
+              className="flex flex-col items-center md:items-end gap-1.5 max-w-sm md:max-w-xs"
             >
-              Guide
-            </Link>
-            <Link
-              href="/contact"
-              className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
-            >
-              Contact
-            </Link>
+              <p className="text-[10px] font-medium uppercase tracking-wide text-stone-600">
+                Latest from the blog
+              </p>
+              <ul className="flex flex-col items-center md:items-end gap-1 text-center md:text-right">
+                {recentPosts.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="text-[11px] text-stone-500 hover:text-amber-400/90 transition-colors line-clamp-2"
+                    >
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
         </div>
 
