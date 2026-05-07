@@ -119,6 +119,22 @@ const postsUnsorted: PostMeta[] = [
       "privacy-first travel documentation",
     ],
   },
+  {
+    slug: "solo-backpacking-southeast-asia",
+    title:
+      "How I Documented My Solo Backpacking Trip Without the Cloud",
+    description:
+      "Three months backpacking Southeast Asia, 3,000 photos, and how I finally documented the trip with a browser-based tool — no uploads, no accounts.",
+    date: "2026-05-07",
+    readTime: "7 min read",
+    keywords: [
+      "document backpacking trip",
+      "travel map offline",
+      "solo travel memories",
+      "share trip photos privately",
+      "backpacker travel journal",
+    ],
+  },
 ];
 
 export const posts = [...postsUnsorted].sort((a, b) => {

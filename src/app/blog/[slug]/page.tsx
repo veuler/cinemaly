@@ -29,6 +29,8 @@ const postModules: Record<
     import("../posts/cinemaly-android-travel-capsule-app.mdx"),
   "cinemaly-ios-travel-capsule-app": () =>
     import("../posts/cinemaly-ios-travel-capsule-app.mdx"),
+  "solo-backpacking-southeast-asia": () =>
+    import("../posts/solo-backpacking-southeast-asia.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };
