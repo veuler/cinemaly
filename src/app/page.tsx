@@ -1,9 +1,12 @@
 import PromoVideo from "@/components/PromoVideo";
 import CapsuleGenerator from "@/components/CapsuleGenerator";
+import MobileStoreBanner from "@/components/MobileStoreBanner";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col text-stone-200 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative overflow-hidden">
+    <>
+      <MobileStoreBanner />
+      <div className="min-h-screen flex flex-col text-stone-200 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative overflow-hidden">
       <div className="fixed inset-0 z-0 pointer-events-none bg-stone-950">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-black opacity-80"></div>
 
@@ -149,5 +152,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Lexend_Giga, Lexend_Tera } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
@@ -25,6 +25,10 @@ const lexendTera = Lexend_Tera({
   display: "swap",
   variable: "--font-lexend-tera",
 });
+
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: {
