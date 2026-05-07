@@ -42,7 +42,8 @@ export default function MobileStoreBanner() {
       className={[
         "fixed left-1/2 z-48 w-[min(92vw,22rem)] sm:w-[min(92vw,26rem)]",
         "top-auto bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))]",
-        "md:top-[calc(5rem+env(safe-area-inset-top,0px)+0.5rem)] md:bottom-auto",
+        /* Tighter to nav on md+ so the card sits higher and clears the hero headline */
+        "md:top-[calc(5.2rem+env(safe-area-inset-top,0px))] md:bottom-auto",
         "-translate-x-1/2 pointer-events-auto",
         "transition-[transform,opacity] duration-420 ease-[cubic-bezier(0.22,1,0.36,1)]",
         animateIn

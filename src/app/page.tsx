@@ -17,7 +17,7 @@ export default function Home() {
         <div className="absolute inset-0 css-grid-pattern opacity-20 mask-[linear-gradient(to_bottom,white,transparent)]"></div>
       </div>
 
-      <main className="relative z-10 flex-1 pt-24 md:pt-32 pb-10 md:pb-16 px-0 sm:px-6 flex flex-col items-center justify-center w-full">
+      <main className="relative z-10 flex-1 pt-24 md:pt-40 pb-10 md:pb-16 px-0 sm:px-6 flex flex-col items-center justify-center w-full">
         <div className="max-w-3xl w-full bg-stone-900/35 backdrop-blur-3xl p-6 sm:p-8 md:p-12 rounded-3xl md:rounded-4xl border border-stone-700/40 shadow-2xl shadow-black/60 relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-amber-500/8 blur-[100px] pointer-events-none"></div>
 
