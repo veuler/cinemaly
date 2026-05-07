@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Lexend_Giga } from "next/font/google";
+import AmberStoreDownloadCard from "@/components/AmberStoreDownloadCard";
 
 const lexendGiga = Lexend_Giga({
   subsets: ["latin"],
@@ -295,19 +296,16 @@ export default function Guide() {
                 },
                 { platform: "Android — Chrome", create: true, view: true },
                 {
-                  platform: "iOS — Safari, Chrome, Edge",
+                  platform: "iOS — Cinemaly (App Store)",
                   create: true,
-                  view: false,
-                  note: true,
+                  view: true,
                 },
               ].map((row, i) => (
                 <div
                   key={i}
-                  className={`grid grid-cols-3 px-5 py-4 items-center ${i < 2 ? "border-b border-stone-800/40" : ""} ${row.note ? "bg-amber-500/3" : "bg-stone-900/20"}`}
+                  className={`grid grid-cols-3 px-5 py-4 items-center ${i < 2 ? "border-b border-stone-800/40" : ""} bg-stone-900/20`}
                 >
-                  <span
-                    className={`text-xs font-medium ${row.note ? "text-stone-400" : "text-stone-300"}`}
-                  >
+                  <span className="text-xs font-medium text-stone-300">
                     {row.platform}
                   </span>
                   <div className="flex justify-center">
@@ -321,41 +319,14 @@ export default function Guide() {
                     {row.view ? (
                       <span className="text-sm text-emerald-400">✓</span>
                     ) : (
-                      <span className="text-sm text-amber-500">⚠</span>
+                      <span className="text-sm text-rose-400">✗</span>
                     )}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-4 flex items-start gap-3 px-4 py-3.5 bg-amber-500/5 border border-amber-500/15 rounded-xl">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-amber-500/70 mt-0.5 shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                />
-              </svg>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                <span className="text-amber-400/80 font-semibold">
-                  iOS limitation:
-                </span>{" "}
-                Creating a capsule works on iOS. Viewing one does not — all
-                browsers on iOS share Apple's WebKit engine, which has a
-                restriction with binary file reading in the browser. For the
-                best experience,{" "}
-                <span className="text-stone-300 font-medium">
-                  use a desktop browser or Android Chrome.
-                </span>
-              </p>
-            </div>
+            <AmberStoreDownloadCard className="mt-6 max-w-lg mx-auto w-full" />
           </div>
 
           <div className="relative bg-stone-900/40 border border-amber-500/15 rounded-3xl p-7 md:p-10 overflow-hidden mb-8">
