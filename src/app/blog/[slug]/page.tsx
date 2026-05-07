@@ -51,6 +51,14 @@ const postsMeta: Record<
     date: "2026-04-02",
     readTime: "6 min read",
   },
+  "cinemaly-android-travel-capsule-app": {
+    title:
+      "Cinemaly for Android: Native Travel Capsules, Sharing, and the .cnmly Format",
+    description:
+      "Shipping Cinemaly on Android—scoped storage, native photo pipelines, share sheets, and why mobile exports a self-contained .cnmly capsule while the browser still compiles to .html.",
+    date: "2026-04-18",
+    readTime: "7 min read",
+  },
   "cinemaly-ios-travel-capsule-app": {
     title:
       "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",
@@ -73,6 +81,8 @@ const postModules: Record<
   "amsterdam-belgium-travel": () =>
     import("../posts/amsterdam-belgium-travel.mdx"),
   "europe-istanbul-trip": () => import("../posts/europe-istanbul-trip.mdx"),
+  "cinemaly-android-travel-capsule-app": () =>
+    import("../posts/cinemaly-android-travel-capsule-app.mdx"),
   "cinemaly-ios-travel-capsule-app": () =>
     import("../posts/cinemaly-ios-travel-capsule-app.mdx"),
 };

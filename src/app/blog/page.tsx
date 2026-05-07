@@ -67,6 +67,15 @@ const posts = [
     readTime: "6 min read",
   },
   {
+    slug: "cinemaly-android-travel-capsule-app",
+    title:
+      "Cinemaly for Android: Native Travel Capsules, Sharing, and the .cnmly Format",
+    description:
+      "Why we shipped on Android first, how scoped storage and native rendering changed the experience, and how .cnmly capsule exports fit next to the browser’s .html download.",
+    date: "2026-04-18",
+    readTime: "7 min read",
+  },
+  {
     slug: "cinemaly-ios-travel-capsule-app",
     title:
       "Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format",

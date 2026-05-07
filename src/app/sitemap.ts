@@ -69,6 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: "https://cinemaly.app/blog/cinemaly-android-travel-capsule-app",
+      lastModified: new Date("2026-04-18"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://cinemaly.app/blog/cinemaly-ios-travel-capsule-app",
       lastModified: new Date("2026-05-07"),
       changeFrequency: "monthly",

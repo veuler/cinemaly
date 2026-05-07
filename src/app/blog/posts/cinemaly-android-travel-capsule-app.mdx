@@ -1,0 +1,101 @@
+There's a moment in every browser-based project where you start to feel the ceiling.
+
+Not a hard ceiling — the web is genuinely capable of remarkable things now — but a perceptible one. A slight hesitation when loading twenty high-resolution photos. A frame drop in the map animation when the device is warm. A file picker that behaves differently depending on whether you're on Chrome 114 or Chrome 121. I'd built Cinemaly as a browser tool deliberately, because I wanted something that required nothing: no install, no account, no permission dialogs, no app store. Just a URL and a browser. For a long time, that felt like the right tradeoff.
+
+Then I started paying attention to where people actually were when they wanted to use it.
+
+They weren't at a desk. They were on their phone, still at the airport, or on the train home from a trip, or lying on a hotel bed at 11 p.m. on the last night before flying back. The photos were on their phone. The memories were freshest right then. And opening a browser tab, navigating to cinemaly.app, and going through the upload flow on a mobile browser — while technically possible — was clearly not what the experience was built for. The gap between "it works" and "it actually fits how people use it" turned out to be significant.
+
+So I built the Android app. And I want to be honest about what that meant.
+
+## Why Android first
+
+The honest answer is file access.
+
+One of Cinemaly's core design commitments is that your photos never leave your device. On the web version, this is architecturally enforced — everything runs in the browser, nothing is uploaded to a server, and the output is a file that downloads locally. Preserving that guarantee on mobile required thinking carefully about which platform gave me the most control over how that worked.
+
+Android's file system model — despite becoming meaningfully more restrictive with scoped storage in Android 10 and later — still gave me a clearer path to producing a real, shareable output file that the user actually owned. In the browser, Cinemaly still compiles to a single `.html` capsule you can keep and share. On Android, the app exports a `.cnmly` capsule package: a dedicated document type that bundles your photos, route, and capsule data in one place — again with nothing uploaded to our servers. On Android, I could write that package, save it to a location the user controls, and let them share it however they wanted: email, WhatsApp, a USB cable to a laptop, whatever. The mental model stayed the same: make a capsule, keep it local, share it on your terms.
+
+<Callout>
+  The goal was never to rebuild Cinemaly as an app. It was to make the same
+  thing — the same capsule idea, the same privacy guarantee, the same no-account
+  experience — feel native to the way people actually use their phones.
+</Callout>
+
+## The parts that were harder than expected
+
+I've been building software long enough to know that the features that seem simple in a spec are usually the ones that take the most time. This was no exception.
+
+<Step num="01" title="Scoped storage is not one thing — it's a moving target">
+  Android's storage access model changed significantly between Android 9 and
+  Android 13, and the changes weren't always backward compatible. What worked
+  cleanly on one version required a different approach on another. Producing a
+  file and putting it somewhere the user could find it — something that sounds
+  trivially simple — ended up being one of the more time-consuming parts of the
+  whole project. The Storage Access Framework API is powerful, but it's verbose,
+  and the edge cases are many. I tested on seven different Android versions
+  before I felt confident.
+</Step>
+
+<Step num="02" title="Photo loading is fast until it isn't">
+  On the web version, photos are loaded through the browser's file picker, read
+  as base64, and processed in JavaScript. That pipeline has overhead — it's not
+  slow, but it's measurably slower than reading files natively. On Android, I
+  can access the photo library directly and process images in a native layer
+  before handing them to the map. The result is noticeably faster, especially
+  with larger photos. The catch: memory management. A browser tab has a
+  relatively forgiving memory environment. A mobile app does not. Loading thirty
+  12-megapixel photos without careful management will crash on mid-range
+  devices. Getting that right took longer than building the core feature.
+</Step>
+
+<Step
+  num="03"
+  title="The map animation on mobile is different from the map animation in a browser"
+>
+  On the web, the animated route is rendered through a WebGL context inside a
+  browser tab — it competes for GPU resources with everything else the browser
+  is doing. On Android, the map renders on its own thread with direct GPU
+  access. The difference is visible. The route draws more smoothly, the camera
+  movements are more fluid, the whole thing feels like it has more weight to it.
+  This wasn't something I planned for specifically — it was a consequence of
+  going native that I only understood once I saw it running on a real device for
+  the first time.
+</Step>
+
+## What actually improved, concretely
+
+I'm reluctant to make vague claims about performance because vague performance claims are meaningless. So here's what I can say specifically, based on testing the same workflow on the same content across the web version and the Android app:
+
+Photo import is faster. On the web version, importing fifteen photos from a file picker takes a few seconds of browser processing. On Android, selecting the same fifteen photos from the gallery is close to instant — native file access removes the base64 encoding step entirely.
+
+The map animation is smoother on mid-range devices. The web version holds up well on a fast desktop or a high-end phone with a powerful browser. On a mid-range Android device from 2022, the native rendering is meaningfully more consistent. Frame drops that occasionally appeared in the browser are gone.
+
+The capsule file is easier to share from the device. On the web, you get a `.html` download. On Android, you get a standard share sheet — the same one you'd use to send a photo or a document — with a `.cnmly` package attached. You can send it to WhatsApp, email, Google Drive, or move it to a laptop over USB. Mail and messaging apps treat it like any other document; you open the capsule in Cinemaly when you want the full map-and-photos experience.
+
+## What didn't change
+
+The trip you build is the same kind of artifact: a private, self-contained travel capsule with the animated map, photo attachments, and city notes — not a grid dump in someone else's cloud. The browser path still centers on a portable `.html` download; the Android app standardizes on `.cnmly` so every image and the route live in one file built for mobile creation and sharing.
+
+The privacy model is unchanged. No account, no server, no cloud upload. The photos stay on your device during the building process and end up inside the export package. The app doesn't collect analytics on what routes you build or what photos you use.
+
+The core workflow is the same: add cities, attach photos, write notes, export. I didn't want to use the mobile version as an opportunity to add features that would complicate the thing that made Cinemaly useful in the first place. The web version taught me what the essential shape of the tool was. The Android app keeps that shape and makes it feel at home on a phone.
+
+## What I think about now
+
+There's a version of this project where I built a more ambitious app — cloud sync, collaborative maps, an account system, a feed. I know why that version would make sense commercially. I also know it would be a different tool solving a different problem for a different kind of user.
+
+The people Cinemaly is actually for are people who went somewhere, have photos on their phone, and want to make something with those photos that captures the shape of the trip — not just the highlights, but the route, the movement, the sense that all these places were connected in a particular order. Those people don't want to create an account for that. They don't want their photos stored somewhere they don't control. They want to make the thing and share it.
+
+The Android app is built for exactly those people, on the device where their photos actually live.
+
+---
+
+_[Cinemaly for Android is available on Google Play](https://play.google.com/store/apps/details?id=com.veulerv.cinemaly). The web version remains free and unchanged at [cinemaly.app](/), where compiling still downloads a `.html` capsule. In the Android app, exporting produces a `.cnmly` package so your photos and route stay in one file._
+
+## Related Reads
+
+- [Create a Free Interactive Travel Map With Your Photos](/blog/interactive-travel-map-free)
+- [7 Ways to Document Your Travels Without Cloud Storage](/blog/private-travel-documentation)
+- [Polarsteps vs Cinemaly: Which Should You Use?](/blog/polarsteps-vs-cinemaly)
+- [Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format](/blog/cinemaly-ios-travel-capsule-app)
