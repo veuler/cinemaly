@@ -1,5 +1,8 @@
 import { posts } from "@/data/posts";
 
+/** Required for Cloudflare Pages (@cloudflare/next-on-pages). */
+export const runtime = "edge";
+
 const SITE_URL = "https://cinemaly.app";
 
 function escapeXml(text: string): string {
