@@ -3,8 +3,8 @@ import type { ReactNode } from "react";
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/cinemaly/id6763919834";
 
-/** Google Play listing URL — set when live (empty = placeholder button). */
-export const GOOGLE_PLAY_URL = "";
+export const GOOGLE_PLAY_URL =
+  "https://play.google.com/store/apps/details?id=com.veulerv.cinemaly";
 
 function AppleGlyph({ className }: { className?: string }) {
   return (
