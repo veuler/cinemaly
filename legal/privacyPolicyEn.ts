@@ -3,7 +3,7 @@
  * Review with qualified counsel before store submission; update "lastUpdated" when you change practices.
  */
 
-export const PRIVACY_POLICY_LAST_UPDATED = "April 3, 2026";
+export const PRIVACY_POLICY_LAST_UPDATED = "June 11, 2026";
 
 export type PrivacyPolicySection = {
   title: string;
