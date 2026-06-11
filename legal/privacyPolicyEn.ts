@@ -48,6 +48,14 @@ export const privacyPolicySectionsEn: PrivacyPolicySection[] = [
     ],
   },
   {
+    title: "Optional cinematic video (screen recording)",
+    paragraphs: [
+      "If you choose to create a cinematic video from a capsule, the App uses your device’s screen-recording APIs (such as ReplayKit on iOS or MediaProjection on Android) only after you start the feature and grant the system permission. The recording captures what is shown on screen while the App plays your capsule on the map (for example route animation, photos, and on-screen labels). Microphone audio is not recorded.",
+      "The resulting video is processed and stored locally on your device (including in the App’s vault). We do not upload these videos to Cinemaly-operated servers. You may optionally save a copy to your photo library, preview the video in the App, or share it through your device’s share sheet and other services you select.",
+      "Because screen recording can capture whatever is visible on your display during the session, avoid starting a recording if you do not want other on-screen content (such as notifications) to appear in the video.",
+    ],
+  },
+  {
     title: "Support contact",
     paragraphs: [
       "If you email us for support (e.g. at contact@cinemaly.app), we receive the information you include in your message (such as your email address and the contents of your email). We use that only to respond and improve support, unless a longer retention period is required by law.",
