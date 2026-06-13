@@ -17,6 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://cinemaly.app/download",
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly",
+      priority: 0.95,
+    },
+    {
       url: "https://cinemaly.app/contact",
       lastModified: new Date("2026-04-01"),
       changeFrequency: "yearly",

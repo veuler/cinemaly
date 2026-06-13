@@ -19,7 +19,13 @@ function NavLogo() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-5 md:gap-8">
+          <div className="flex items-center gap-3 sm:gap-5 md:gap-8">
+            <Link
+              href="/download"
+              className="text-xs md:text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+            >
+              Download
+            </Link>
             <Link
               href="/guide"
               className="text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
@@ -28,7 +34,7 @@ function NavLogo() {
             </Link>
             <Link
               href="/contact"
-              className="text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
+              className="hidden sm:inline text-xs md:text-sm font-semibold text-stone-400 hover:text-amber-400 transition-colors"
             >
               Contact
             </Link>

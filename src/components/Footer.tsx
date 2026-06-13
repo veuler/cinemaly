@@ -30,6 +30,12 @@ function Footer() {
           <div className="flex flex-col items-center md:items-end gap-3">
             <div className="flex flex-wrap items-center justify-center gap-6">
               <Link
+                href="/download"
+                className="text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              >
+                Download
+              </Link>
+              <Link
                 href="/guide"
                 className="text-xs font-semibold text-stone-400 hover:text-amber-400 transition-colors"
               >
