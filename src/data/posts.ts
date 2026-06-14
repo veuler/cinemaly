@@ -225,6 +225,21 @@ const postsUnsorted: PostMeta[] = [
       "share travel capsule",
     ],
   },
+  {
+    slug: "how-to-make-visited-countries-map",
+    title: "How to Make a Visited Countries Map on Your Phone",
+    description:
+      "Learn how to use Cinemaly's World tab as a visited countries map, visited cities tracker, and visual travel stats board.",
+    date: "2026-06-14",
+    readTime: "5 min read",
+    keywords: [
+      "visited countries map",
+      "visited cities map",
+      "countries visited map app",
+      "world travel map app",
+      "travel stats app",
+    ],
+  },
 ];
 
 export const posts = [...postsUnsorted].sort((a, b) => {

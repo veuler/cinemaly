@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://cinemaly.app/download",
-      lastModified: new Date("2026-06-13"),
+      lastModified: new Date("2026-06-14"),
       changeFrequency: "monthly",
       priority: 0.95,
     },
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://cinemaly.app/blog",
-      lastModified: new Date("2026-05-07"),
+      lastModified: new Date("2026-06-14"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const landingEntries: MetadataRoute.Sitemap = seoLandingPageList.map(
     (page) => ({
       url: `https://cinemaly.app/${page.slug}`,
-      lastModified: new Date("2026-06-13"),
+      lastModified: new Date("2026-06-14"),
       changeFrequency: "monthly" as const,
       priority: 0.85,
     }),

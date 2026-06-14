@@ -7,12 +7,12 @@ import { storeLinks } from "@/components/storeLinks";
 export const metadata: Metadata = {
   title: "Download Cinemaly for iPhone and Android",
   description:
-    "Get Cinemaly on the App Store and Google Play. Turn your trip photos, routes, and notes into cinematic travel map stories.",
+    "Get Cinemaly on the App Store and Google Play. Create cinematic travel map stories and track visited cities and countries in the World tab.",
   alternates: { canonical: "/download" },
   openGraph: {
     title: "Download Cinemaly for iPhone and Android",
     description:
-      "Get Cinemaly on the App Store and Google Play. Turn your trip photos, routes, and notes into cinematic travel map stories.",
+      "Get Cinemaly on the App Store and Google Play. Create cinematic travel map stories and track visited cities and countries in the World tab.",
     url: "/download",
     type: "website",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Download Cinemaly for iPhone and Android",
     description:
-      "Get Cinemaly on the App Store and Google Play. Turn your trip photos, routes, and notes into cinematic travel map stories.",
+      "Get Cinemaly on the App Store and Google Play. Create cinematic travel map stories and track visited cities and countries in the World tab.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -47,6 +47,13 @@ const features = [
       "Turn trip routes, photos, and notes into cinematic recap videos.",
     iconPath:
       "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
+  },
+  {
+    title: "World map tracker",
+    description:
+      "Add visited cities and countries, color them on a world map, and see travel stats.",
+    iconPath:
+      "M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.3 4-5.4 4-9s-1.5-6.7-4-9m0 18c-2.5-2.3-4-5.4-4-9s1.5-6.7 4-9m-7 9h14",
   },
   {
     title: "Portable capsules",
@@ -77,6 +84,11 @@ const faqs = [
     question: "Do I need an account?",
     answer:
       "No. Cinemaly does not require an account, email, login, or profile to create travel capsules. You can build a capsule directly on your device.",
+  },
+  {
+    question: "Can I track visited countries and cities?",
+    answer:
+      "Yes. Cinemaly includes a World tab where you can add visited places, color cities or countries on a world map, and see simple travel statistics by country.",
   },
   {
     question: "Does Cinemaly upload my photos?",
@@ -120,7 +132,7 @@ function JsonLd() {
       priceCurrency: "USD",
     },
     description:
-      "Cinemaly turns trip photos, routes, stops, and notes into private cinematic travel map stories, capsules, and travel videos.",
+      "Cinemaly turns trip photos, routes, stops, and notes into private cinematic travel map stories, capsules, travel videos, and a World map of visited cities and countries.",
   };
 
   const faqPage = {
@@ -181,7 +193,8 @@ export default function DownloadPage() {
             <p className="mt-4 max-w-xl text-sm font-medium leading-relaxed text-stone-400 md:text-lg">
               Create cinematic travel map stories from your trips. Add photos,
               stops, notes, and routes, then save a private capsule or a
-              social-ready travel video.
+              social-ready travel video. Use the World tab to track visited
+              cities and countries on a visual map.
             </p>
 
             {/* <div className="mt-7 max-w-xl">
@@ -201,11 +214,11 @@ export default function DownloadPage() {
           <StoreCtaPanel
             campaign="download"
             ctaPosition="hero_panel"
-            description="Get the mobile app for the best capsule playback, sharing, and travel video workflow."
+            description="Get the mobile app for capsule playback, sharing, travel videos, and the World visited places map."
             title="Your journeys, framed like cinema"
           >
-            <div className="grid grid-cols-3 gap-2 text-center">
-              {["Map", "Capsule", "Video"].map((label) => (
+            <div className="grid grid-cols-2 gap-2 text-center sm:grid-cols-4">
+              {["Map", "Capsule", "Video", "World"].map((label) => (
                 <div
                   key={label}
                   className="rounded-2xl border border-stone-800/70 bg-stone-950/45 px-3 py-3"
@@ -232,7 +245,7 @@ export default function DownloadPage() {
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-stone-800/70" />
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {features.map((feature) => (
               <article
                 key={feature.title}

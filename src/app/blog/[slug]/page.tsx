@@ -43,6 +43,8 @@ const postModules: Record<
   "private-travel-journal-no-cloud": () =>
     import("../posts/private-travel-journal-no-cloud.mdx"),
   "what-is-cnmly-file": () => import("../posts/what-is-cnmly-file.mdx"),
+  "how-to-make-visited-countries-map": () =>
+    import("../posts/how-to-make-visited-countries-map.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };

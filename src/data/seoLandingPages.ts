@@ -26,6 +26,8 @@ export type SeoLandingPageData = {
   features: LandingFeature[];
   faq: LandingFaq[];
   internalLinks: LandingLink[];
+  ctaDescription?: string;
+  ctaTiles?: string[];
   disclaimer?: string;
 };
 
@@ -80,6 +82,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/travel-map-video-maker", label: "Travel map video maker" },
       { href: "/road-trip-map-app", label: "Road trip map app" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
@@ -133,6 +136,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
@@ -186,6 +190,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/travel-capsule-file", label: "What is a travel capsule?" },
       { href: "/polarsteps-alternative", label: "Polarsteps alternative" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
@@ -239,10 +244,68 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
     disclaimer:
       "Cinemaly is not affiliated with, endorsed by, or connected to Polarsteps.",
+  },
+  "visited-countries-map": {
+    slug: "visited-countries-map",
+    title: "Create a Visited Countries Map With Cities and Travel Stats",
+    description:
+      "Use Cinemaly's World tab as a visited countries map and visited cities tracker. Add places you have been, color them on a world map, and see travel stats by country.",
+    eyebrow: "Visited countries map",
+    h1: "Create a Visited Countries Map With Cities and Travel Stats",
+    accent: "visited countries map",
+    intro:
+      "Cinemaly's World tab turns the places you have visited into a visual world map. Add cities or countries, see visited areas highlighted on the map, and track simple travel stats as your personal map fills in.",
+    proofTitle: "A visual tracker for where you have been",
+    proofIntro:
+      "Some trips deserve a cinematic capsule. Others deserve a clean overview of everywhere you have already been. The World tab gives travelers both the map and the numbers.",
+    features: [
+      {
+        title: "Visited cities and countries",
+        description:
+          "Add places you have been and keep them organized as a personal travel record.",
+      },
+      {
+        title: "Highlighted world map",
+        description:
+          "Visited areas are colored on the map, with point fallbacks when a boundary is not available.",
+      },
+      {
+        title: "Travel stats by country",
+        description:
+          "See country-level progress and a world travel percentage as your visited list grows.",
+      },
+    ],
+    faq: [
+      {
+        question: "Can I make a map of countries I have visited?",
+        answer:
+          "Yes. Cinemaly's World tab lets you add visited cities or countries and shows them visually on a world map.",
+      },
+      {
+        question: "Does Cinemaly show travel statistics?",
+        answer:
+          "Yes. The World tab summarizes visited places and countries, including country-level progress and an overall world percentage.",
+      },
+      {
+        question: "Does adding a place require a Cinemaly account?",
+        answer:
+          "No. Cinemaly does not require an account, login, or backend profile. Place search may send the location query to Nominatim/OpenStreetMap.",
+      },
+    ],
+    internalLinks: [
+      { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/road-trip-map-app", label: "Road trip map app" },
+      { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly and use the World tab to color the cities and countries you have visited on a personal travel map.",
+    ctaTiles: ["Cities", "Countries", "Stats"],
   },
   "road-trip-map-app": {
     slug: "road-trip-map-app",
@@ -294,6 +357,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
@@ -347,6 +411,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },

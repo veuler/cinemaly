@@ -128,6 +128,7 @@ function splitAccent(text: string, accent: string) {
 
 export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
   const h1Parts = splitAccent(page.h1, page.accent);
+  const ctaTiles = page.ctaTiles ?? ["iOS", "Android", "Capsules"];
 
   return (
     <div className="min-h-screen overflow-hidden bg-stone-950 text-stone-200 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-200 relative">
@@ -173,11 +174,14 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
           <StoreCtaPanel
             campaign={page.slug}
             ctaPosition="hero_panel"
-            description="Get Cinemaly for iPhone and Android, then turn your trip into a private map capsule or social-ready travel video."
+            description={
+              page.ctaDescription ??
+              "Get Cinemaly for iPhone and Android, then turn your trip into a private map capsule or social-ready travel video."
+            }
             title="Download Cinemaly"
           >
             <div className="grid grid-cols-3 gap-2 text-center">
-              {["iOS", "Android", "Capsules"].map((label) => (
+              {ctaTiles.map((label) => (
                 <div
                   key={label}
                   className="rounded-2xl border border-stone-800/70 bg-stone-950/45 px-3 py-3"
