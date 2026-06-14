@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import DownloadQrBlock from "@/components/DownloadQrBlock";
-import StoreButtons from "@/components/StoreButtons";
 import StoreCtaPanel from "@/components/StoreCtaPanel";
 import { storeLinks } from "@/components/storeLinks";
 
@@ -57,7 +56,7 @@ const features = [
   {
     title: "No account required",
     description:
-      "Cinemaly does not require a login or a Cinemaly cloud account.",
+      "Cinemaly has no account system, login, or server-side capsule storage.",
     iconPath:
       "M12 11c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0 0c0 1.657 1.343 3 3 3s3-1.343 3-3-1.343-3-3-3-3 1.343-3 3zm-8 9a5 5 0 0110 0m-4 0a5 5 0 0110 0",
   },
@@ -66,26 +65,28 @@ const features = [
 const faqs = [
   {
     question: "Is Cinemaly available on iPhone?",
-    answer: "Yes. Cinemaly is available on the App Store for iPhone.",
+    answer:
+      "Yes. Cinemaly is available on the App Store for iPhone. Open this page on your iPhone and tap the App Store button to install the mobile app.",
   },
   {
     question: "Is Cinemaly available on Android?",
-    answer: "Yes. Cinemaly is available on Google Play for Android devices.",
+    answer:
+      "Yes. Cinemaly is available on Google Play for Android phones and tablets. Open this page on your Android device and tap the Google Play button to install it.",
   },
   {
     question: "Do I need an account?",
     answer:
-      "No. Cinemaly does not require an account, email, or login to create travel capsules.",
+      "No. Cinemaly does not require an account, email, login, or profile to create travel capsules. You can build a capsule directly on your device.",
   },
   {
     question: "Does Cinemaly upload my photos?",
     answer:
-      "No. Cinemaly does not upload your capsules, photos, notes, or videos to a Cinemaly cloud unless you choose to share files yourself.",
+      "No. Cinemaly does not upload your photos, notes, videos, or travel capsules to a Cinemaly server. Your personal capsule content is created and kept on your device unless you choose to export or share it yourself.",
   },
   {
     question: "Does the app use the internet?",
     answer:
-      "Yes, for map tiles, geocoding, route distance, purchases, and store downloads. Your personal capsule content is not uploaded to a Cinemaly cloud.",
+      "Inside the app, the limited external request is map/place search. When you search for a place, Cinemaly may send that location query to Nominatim/OpenStreetMap, but Cinemaly has no auth system, backend, or server that stores, processes, or saves your personal capsule content.",
   },
 ];
 

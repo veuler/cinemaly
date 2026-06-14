@@ -150,6 +150,81 @@ const postsUnsorted: PostMeta[] = [
       "backpacker travel journal",
     ],
   },
+  {
+    slug: "how-to-create-animated-travel-map",
+    title: "How to Create an Animated Travel Map From Your Photos",
+    description:
+      "A practical guide to turning trip photos, ordered stops, and notes into a cinematic animated travel map with Cinemaly.",
+    date: "2026-06-13",
+    readTime: "5 min read",
+    keywords: [
+      "how to create animated travel map",
+      "animated travel map from photos",
+      "travel route animation",
+      "cinematic travel map",
+      "travel map app",
+    ],
+  },
+  {
+    slug: "best-polarsteps-alternatives",
+    title: "Best Polarsteps Alternatives for Private Travel Memories",
+    description:
+      "Looking for Polarsteps alternatives? Compare live travel tracking with private cinematic trip capsules, travel maps, and route videos.",
+    date: "2026-06-13",
+    readTime: "5 min read",
+    keywords: [
+      "best Polarsteps alternatives",
+      "Polarsteps alternative",
+      "private travel app",
+      "travel tracker alternative",
+      "cinematic travel map app",
+    ],
+  },
+  {
+    slug: "turn-vacation-photos-into-travel-video",
+    title: "How to Turn Vacation Photos Into a Cinematic Travel Video",
+    description:
+      "Learn how a route-first travel map video can turn vacation photos, stops, and notes into a cinematic trip recap without manual editing.",
+    date: "2026-06-13",
+    readTime: "5 min read",
+    keywords: [
+      "turn vacation photos into travel video",
+      "travel map video maker",
+      "automatic travel video maker",
+      "Instagram travel reel generator",
+      "route map video",
+    ],
+  },
+  {
+    slug: "private-travel-journal-no-cloud",
+    title: "Private Travel Journal Apps That Do Not Upload Your Photos",
+    description:
+      "What a private no-cloud travel journal should mean, and how Cinemaly keeps capsules, photos, notes, and route memories under your control.",
+    date: "2026-06-13",
+    readTime: "5 min read",
+    keywords: [
+      "private travel journal no cloud",
+      "private travel journal app",
+      "no cloud travel app",
+      "local-first travel app",
+      "private photo map app",
+    ],
+  },
+  {
+    slug: "what-is-cnmly-file",
+    title: "What Is a .cnmly Travel Capsule File?",
+    description:
+      "Learn what a .cnmly file is, how Cinemaly travel capsules work, and why route, photos, notes, and memories belong in one portable file.",
+    date: "2026-06-13",
+    readTime: "5 min read",
+    keywords: [
+      "what is cnmly file",
+      ".cnmly file",
+      "Cinemaly travel capsule",
+      "travel capsule file",
+      "share travel capsule",
+    ],
+  },
 ];
 
 export const posts = [...postsUnsorted].sort((a, b) => {

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 
 import { posts } from "@/data/posts";
+import { seoLandingPageList } from "@/data/seoLandingPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = [
@@ -55,5 +56,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  const landingEntries: MetadataRoute.Sitemap = seoLandingPageList.map(
+    (page) => ({
+      url: `https://cinemaly.app/${page.slug}`,
+      lastModified: new Date("2026-06-13"),
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    }),
+  );
+
+  return [...staticEntries, ...landingEntries, ...blogEntries];
 }

@@ -166,9 +166,6 @@ export default function StoreButtons({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={store.ariaLabel}
-            data-event="store_cta_click"
-            data-platform={store.platform}
-            data-cta-position={ctaPosition}
             className={[
               "flex flex-1 items-center justify-center gap-2 rounded-xl border font-semibold tracking-wide transition-colors duration-150",
               sizeClasses[size],

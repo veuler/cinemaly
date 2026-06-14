@@ -32,11 +32,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Cinemaly — Turn Your Travel Into a Cinematic Documentary",
+    default: "Cinemaly - Cinematic Travel Maps for iPhone and Android",
     template: "%s | Cinemaly",
   },
   description:
-    "Create animated 3D travel routes and map your photos with Cinemaly. A free, interactive travel map generator. No login, no server, 100% private.",
+    "Create cinematic travel map capsules and social-ready travel videos with Cinemaly for iPhone and Android. Add trip photos, routes, stops, and notes.",
   keywords: [
     "create animated travel map",
     "how to map travel photos",
@@ -88,15 +88,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://cinemaly.app",
     siteName: "Cinemaly",
-    title: "Cinemaly — Turn Your Travel Into a Cinematic Documentary",
+    title: "Cinemaly - Cinematic Travel Maps for iPhone and Android",
     description:
-      "Upload your photos and travel route. Get a stunning, interactive cinematic map — compiled entirely in your browser.",
+      "Create private cinematic travel map capsules and social-ready travel videos from your trip photos, routes, stops, and notes.",
     images: [
       {
         url: "https://cinemaly.app/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Cinemaly — Cinematic Travel Documentary",
+        alt: "Cinemaly - Cinematic Travel Maps",
         type: "image/png",
       },
     ],
@@ -104,10 +104,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Cinemaly — Turn Your Travel Into a Cinematic Documentary",
+    title: "Cinemaly - Cinematic Travel Maps for iPhone and Android",
     description:
-      "Upload your photos and travel route. Get a stunning, interactive cinematic map — compiled entirely in your browser.",
-    images: ["/og-image.jpg"],
+      "Create private cinematic travel map capsules and social-ready travel videos from your trip photos, routes, stops, and notes.",
+    images: ["/opengraph-image.png"],
   },
 
   applicationName: "Cinemaly",
@@ -140,7 +140,7 @@ export default function RootLayout({
               name: "Cinemaly",
               url: "https://cinemaly.app",
               description:
-                "Transform your travel photos and route into an interactive cinematic map documentary. No login, no server, zero data stored.",
+                "Transform your travel photos, routes, stops, and notes into cinematic travel map capsules and videos.",
               applicationCategory: "MultimediaApplication",
               operatingSystem: "Any",
               offers: {
@@ -152,8 +152,8 @@ export default function RootLayout({
                 "Interactive travel map",
                 "Cinematic photo gallery",
                 "No login required",
-                "Zero data stored",
-                "Offline capable",
+                "No Cinemaly backend for personal capsule content",
+                "iPhone and Android app",
               ],
             }),
           }}
@@ -172,8 +172,10 @@ export default function RootLayout({
                 price: "0",
                 priceCurrency: "USD",
               },
-              downloadUrl:
+              downloadUrl: [
                 "https://apps.apple.com/us/app/cinemaly/id6763919834",
+                "https://play.google.com/store/apps/details?id=com.veulerv.cinemaly",
+              ],
             }),
           }}
         />

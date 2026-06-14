@@ -27,7 +27,7 @@ export function GET() {
     : new Date().toUTCString();
 
   const channelDescription =
-    "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no cloud photo upload, and practical ideas for sharing routes and memories with Cinemaly.";
+    "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no Cinemaly server photo upload, and practical ideas for sharing routes and memories with Cinemaly.";
 
   const itemsXml = posts
     .map(

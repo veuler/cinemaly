@@ -11,12 +11,12 @@ const lexendGiga = Lexend_Giga({
 export const metadata: Metadata = {
   title: "The Polyglot Engine — How Cinemaly Works",
   description:
-    "Learn how Cinemaly turns your photos and travel route into an interactive cinematic map. No login needed, zero data stored, works entirely in your browser.",
+    "Learn how Cinemaly turns your photos and travel route into an interactive cinematic map. No login needed, no Cinemaly backend for your photos.",
   alternates: { canonical: "/guide" },
   openGraph: {
     title: "The Polyglot Engine — How Cinemaly Works",
     description:
-      "Learn how Cinemaly turns your photos and travel route into an interactive cinematic map. No login needed, zero data stored, works entirely in your browser.",
+      "Learn how Cinemaly turns your photos and travel route into an interactive cinematic map. No login needed, no Cinemaly backend for your photos.",
     url: "/guide",
     type: "website",
     images: [

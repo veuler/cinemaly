@@ -6,12 +6,12 @@ import { posts } from "@/data/posts";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no cloud photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
+    "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no Cinemaly server photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "Blog - Cinemaly",
     description:
-      "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no cloud photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
+      "Guides, comparisons, and travel stories about building cinematic, map-based trip documentation in your browser—no account, no Cinemaly server photo upload, and practical ideas for sharing routes and memories with Cinemaly.",
     url: "/blog",
     type: "website",
     images: [

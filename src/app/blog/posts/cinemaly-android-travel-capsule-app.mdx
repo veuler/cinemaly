@@ -14,7 +14,7 @@ The honest answer is file access.
 
 One of Cinemaly's core design commitments is that your photos never leave your device. On the web version, this is architecturally enforced — everything runs in the browser, nothing is uploaded to a server, and the output is a file that downloads locally. Preserving that guarantee on mobile required thinking carefully about which platform gave me the most control over how that worked.
 
-Android's file system model — despite becoming meaningfully more restrictive with scoped storage in Android 10 and later — still gave me a clearer path to producing a real, shareable output file that the user actually owned. In the browser, Cinemaly still compiles to a single `.html` capsule you can keep and share. On Android, the app exports a `.cnmly` capsule package: a dedicated document type that bundles your photos, route, and capsule data in one place — again with nothing uploaded to our servers. On Android, I could write that package, save it to a location the user controls, and let them share it however they wanted: email, WhatsApp, a USB cable to a laptop, whatever. The mental model stayed the same: make a capsule, keep it local, share it on your terms.
+Android's file system model — despite becoming meaningfully more restrictive with scoped storage in Android 10 and later — still gave me a clearer path to producing a real, shareable output file that the user actually owned. In the browser, Cinemaly still compiles to a single `.html` capsule you can keep and share. On Android, the app exports a `.cnmly` capsule package: a dedicated document type that bundles your photos, route, and capsule data in one place, without uploading that capsule content to a Cinemaly server. On Android, I could write that package, save it to a location the user controls, and let them share it however they wanted: email, WhatsApp, a USB cable to a laptop, whatever. The mental model stayed the same: make a capsule, keep it local, share it on your terms.
 
 <Callout>
   The goal was never to rebuild Cinemaly as an app. It was to make the same
@@ -77,7 +77,7 @@ The capsule file is easier to share from the device. On the web, you get a `.htm
 
 The trip you build is the same kind of artifact: a private, self-contained travel capsule with the animated map, photo attachments, and city notes — not a grid dump in someone else's cloud. The browser path still centers on a portable `.html` download; the Android app standardizes on `.cnmly` so every image and the route live in one file built for mobile creation and sharing.
 
-The privacy model is unchanged. No account, no server, no cloud upload. The photos stay on your device during the building process and end up inside the export package. The app doesn't collect analytics on what routes you build or what photos you use.
+The privacy model is unchanged. No account is required, and Cinemaly does not upload your capsules, photos, notes, or videos to a Cinemaly server. The photos stay on your device during the building process and end up inside the export package.
 
 The core workflow is the same: add cities, attach photos, write notes, export. I didn't want to use the mobile version as an opportunity to add features that would complicate the thing that made Cinemaly useful in the first place. The web version taught me what the essential shape of the tool was. The Android app keeps that shape and makes it feel at home on a phone.
 
@@ -96,6 +96,8 @@ _[Cinemaly for Android is available on Google Play](https://play.google.com/stor
 ## Related Reads
 
 - [Create a Free Interactive Travel Map With Your Photos](/blog/interactive-travel-map-free)
+- [What Is a Cinemaly Travel Capsule?](/travel-capsule-file)
+- [Download Cinemaly for iPhone and Android](/download)
 - [7 Ways to Document Your Travels Without Cloud Storage](/blog/private-travel-documentation)
 - [Polarsteps vs Cinemaly: Which Should You Use?](/blog/polarsteps-vs-cinemaly)
 - [Cinemaly for iOS: Travel Capsules, App Store Review, and the Cnmly Format](/blog/cinemaly-ios-travel-capsule-app)

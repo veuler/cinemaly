@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { posts, type PostMeta } from "@/data/posts";
+import StoreButtons from "@/components/StoreButtons";
 
 export const dynamicParams = false;
 
@@ -33,6 +34,15 @@ const postModules: Record<
     import("../posts/italy-road-trip-travel-map.mdx"),
   "solo-backpacking-southeast-asia": () =>
     import("../posts/solo-backpacking-southeast-asia.mdx"),
+  "how-to-create-animated-travel-map": () =>
+    import("../posts/how-to-create-animated-travel-map.mdx"),
+  "best-polarsteps-alternatives": () =>
+    import("../posts/best-polarsteps-alternatives.mdx"),
+  "turn-vacation-photos-into-travel-video": () =>
+    import("../posts/turn-vacation-photos-into-travel-video.mdx"),
+  "private-travel-journal-no-cloud": () =>
+    import("../posts/private-travel-journal-no-cloud.mdx"),
+  "what-is-cnmly-file": () => import("../posts/what-is-cnmly-file.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };
@@ -194,6 +204,21 @@ export default async function BlogPostPage({ params }: Props) {
           </p>
 
           <div className="mt-8 h-px bg-linear-to-r from-amber-500/30 via-stone-800/40 to-transparent" />
+
+          <div className="mt-7 rounded-2xl border border-amber-500/15 bg-stone-900/35 p-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-amber-400/90">
+              Download Cinemaly
+            </p>
+            <p className="mt-1 mb-4 text-xs leading-relaxed text-stone-500">
+              Create cinematic travel map capsules and videos from your own
+              photos, routes, stops, and notes.
+            </p>
+            <StoreButtons
+              campaign="blog"
+              ctaPosition={`header_${slug}`}
+              size="compact"
+            />
+          </div>
         </header>
 
         <article
@@ -211,30 +236,22 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="mt-16 p-6 md:p-8 bg-stone-900/40 border border-amber-500/15 rounded-2xl relative overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-amber-300 to-orange-500 rounded-l-2xl" />
           <p className="text-sm font-bold text-white mb-1 ml-2">
-            Ready to try it?
+            Ready to build your own travel capsule?
           </p>
           <p className="text-xs text-stone-500 mb-5 leading-relaxed ml-2">
-            No account. No subscription. Runs entirely in your browser.
+            Download Cinemaly for iPhone or Android and turn trip photos,
+            routes, stops, and notes into cinematic map stories.
           </p>
+          <StoreButtons
+            campaign="blog"
+            ctaPosition={`footer_${slug}`}
+            size="default"
+          />
           <Link
-            href="/"
-            className="inline-flex items-center gap-2 py-3 px-6 bg-linear-to-r from-amber-500 to-orange-500 text-stone-950 font-black text-xs rounded-xl hover:from-amber-400 hover:to-orange-400 transition-all hover:-translate-y-0.5 uppercase tracking-wide shadow-[0_0_20px_-8px_rgba(245,158,11,0.5)]"
+            href="/download"
+            className="mt-4 inline-flex text-xs font-bold text-amber-400 transition-colors hover:text-amber-300"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-3.5 h-3.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M5 3l14 9-14 9V3z"
-              />
-            </svg>
-            Create Your Capsule Free
+            Compare iPhone and Android download options
           </Link>
         </div>
       </main>
