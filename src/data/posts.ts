@@ -240,6 +240,99 @@ const postsUnsorted: PostMeta[] = [
       "travel stats app",
     ],
   },
+  {
+    slug: "best-travel-map-animation-apps",
+    title: "Best Travel Map Animation Apps in 2026: Why Cinemaly Stands Out",
+    description:
+      "See why Cinemaly stands out among travel map animation apps by keeping routes, photos, notes, private capsules, and cinematic videos together.",
+    date: "2026-06-18",
+    readTime: "9 min read",
+    keywords: [
+      "best travel map animation apps",
+      "travel map animation app",
+      "animated travel map app",
+      "travel route animation",
+      "travel map video maker",
+      "TravelAnimator alternative",
+      "anim8map alternative",
+    ],
+  },
+  {
+    slug: "travelanimator-vs-cinemaly",
+    title: "TravelAnimator vs Cinemaly: Why Cinemaly Keeps More of Your Trip",
+    description:
+      "Compare TravelAnimator and Cinemaly, and see why Cinemaly is the stronger choice for private routes, photos, notes, capsules, and lasting trip memories.",
+    date: "2026-06-18",
+    readTime: "7 min read",
+    keywords: [
+      "TravelAnimator vs Cinemaly",
+      "TravelAnimator alternative",
+      "Journey Route alternative",
+      "travel route video app",
+      "private travel map app",
+    ],
+  },
+  {
+    slug: "best-apps-to-map-travel-photos",
+    title: "Best Apps to Map Travel Photos: Why Cinemaly Stands Out",
+    description:
+      "See why Cinemaly is a better way to map meaningful travel photos with ordered stops, notes, private capsules, and cinematic route stories.",
+    date: "2026-06-18",
+    readTime: "7 min read",
+    keywords: [
+      "best app to map travel photos",
+      "travel photo map app",
+      "map photos by location",
+      "PhotoRoute alternative",
+      "trip photos on map",
+      "photo route map",
+    ],
+  },
+  {
+    slug: "anim8map-vs-cinemaly",
+    title: "anim8map vs Cinemaly: Why Cinemaly Preserves the Complete Trip",
+    description:
+      "Compare anim8map and Cinemaly, and see why Cinemaly offers more lasting value through private capsules, photos, notes, and mobile trip stories.",
+    date: "2026-06-18",
+    readTime: "7 min read",
+    keywords: [
+      "anim8map vs Cinemaly",
+      "anim8map alternative",
+      "animated travel map comparison",
+      "3D travel route video",
+      "private travel map app",
+    ],
+  },
+  {
+    slug: "animatemytravel-vs-cinemaly",
+    title: "AnimateMyTravel vs Cinemaly: Which Keeps More of Your Trip?",
+    description:
+      "Compare AnimateMyTravel and Cinemaly, and see why Cinemaly is built for complete private trip memories rather than a single route export.",
+    date: "2026-06-18",
+    readTime: "7 min read",
+    keywords: [
+      "AnimateMyTravel vs Cinemaly",
+      "AnimateMyTravel alternative",
+      "free travel map animation",
+      "4K travel route animation",
+      "travel capsule app",
+    ],
+  },
+  {
+    slug: "travel-map-replay-vs-cinemaly",
+    title: "Travel Map Replay vs Cinemaly: Why Cinemaly Goes Beyond Replay",
+    description:
+      "Compare Travel Map Replay and Cinemaly, and see why Cinemaly offers more with photos, notes, private capsules, and iPhone and Android support.",
+    date: "2026-06-18",
+    readTime: "6 min read",
+    keywords: [
+      "Travel Map Replay vs Cinemaly",
+      "Travel Map Replay alternative",
+      "travel route replay app",
+      "animated route video iPhone",
+      "travel map app Android",
+    ],
+  },
 ];
 
 export const posts = [...postsUnsorted].sort((a, b) => {

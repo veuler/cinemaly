@@ -15,6 +15,7 @@ export type LandingFeature = {
 
 export type SeoLandingPageData = {
   slug: string;
+  lastModified?: string;
   title: string;
   description: string;
   eyebrow: string;
@@ -81,6 +82,14 @@ export const seoLandingPages = {
     ],
     internalLinks: [
       { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      {
+        href: "/travelanimator-alternative",
+        label: "TravelAnimator alternative",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Best travel map animation apps",
+      },
       { href: "/road-trip-map-app", label: "Road trip map app" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
@@ -135,6 +144,23 @@ export const seoLandingPages = {
     ],
     internalLinks: [
       { href: "/animated-travel-map", label: "Animated travel map" },
+      {
+        href: "/travelanimator-alternative",
+        label: "TravelAnimator alternative",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Compare travel map animation apps",
+      },
+      { href: "/anim8map-alternative", label: "anim8map alternative" },
+      {
+        href: "/animatemytravel-alternative",
+        label: "AnimateMyTravel alternative",
+      },
+      {
+        href: "/travel-map-replay-alternative",
+        label: "Travel Map Replay alternative",
+      },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
@@ -249,6 +275,298 @@ export const seoLandingPages = {
     ],
     disclaimer:
       "Cinemaly is not affiliated with, endorsed by, or connected to Polarsteps.",
+  },
+  "travelanimator-alternative": {
+    slug: "travelanimator-alternative",
+    lastModified: "2026-06-18",
+    title: "A TravelAnimator Alternative for Photos, Notes, and Private Trips",
+    description:
+      "Looking for a TravelAnimator alternative? Cinemaly turns routes, photos, stops, and notes into private cinematic travel capsules and social-ready videos.",
+    eyebrow: "TravelAnimator alternative",
+    h1: "A TravelAnimator Alternative for the Whole Trip Story",
+    accent: "TravelAnimator alternative",
+    intro:
+      "A route animation shows where you traveled. Cinemaly preserves much more: the route, selected photos, notes, stop order, and memory of the trip together in one private cinematic story.",
+    proofTitle: "More than a vehicle moving across a map",
+    proofIntro:
+      "Choose Cinemaly when the route matters, but the photos and meaning attached to each stop matter just as much. Build a private capsule for yourself, then export a social-ready map video when you want to share it.",
+    features: [
+      {
+        title: "Photos and notes at each stop",
+        description:
+          "Keep the places, images, and context of the journey together instead of producing only a route clip.",
+      },
+      {
+        title: "Private, local-first creation",
+        description:
+          "Cinemaly does not require an account and does not upload personal capsule content to a Cinemaly server.",
+      },
+      {
+        title: "Capsule plus video",
+        description:
+          "Create a portable travel memory for keeping and a cinematic map video for sharing.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is Cinemaly the same type of app as TravelAnimator?",
+        answer:
+          "They both visualize routes, but Cinemaly preserves a much more complete trip story built from ordered stops, photos, notes, a portable capsule, and a cinematic video.",
+      },
+      {
+        question: "Why choose Cinemaly instead of TravelAnimator?",
+        answer:
+          "Choose Cinemaly when you want more than a route clip: private personal content, meaningful photos and notes at each stop, a reusable capsule, and a story that remains useful after sharing.",
+      },
+      {
+        question: "When is Cinemaly the better choice?",
+        answer:
+          "Choose Cinemaly when you want the route, photos, notes, and stop order to remain together as a private travel memory, not only as a finished animation.",
+      },
+      {
+        question: "Does Cinemaly require an account?",
+        answer:
+          "No. Cinemaly does not require an account, email address, or social profile to create travel capsules.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: "/blog/travelanimator-vs-cinemaly",
+        label: "TravelAnimator vs Cinemaly",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Best travel map animation apps",
+      },
+      { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly for iPhone or Android and turn your route, photos, notes, and stops into a private cinematic trip story.",
+    ctaTiles: ["Photos", "Route", "Capsule"],
+    disclaimer:
+      "Cinemaly is not affiliated with, endorsed by, or connected to TravelAnimator or Lascade LLC. Product details were checked against official public pages on June 18, 2026 and may change.",
+  },
+  "anim8map-alternative": {
+    slug: "anim8map-alternative",
+    lastModified: "2026-06-18",
+    title: "An anim8map Alternative for Private Travel Stories",
+    description:
+      "Looking for an anim8map alternative? Cinemaly keeps routes, photos, notes, and stops together as a private travel capsule and social-ready video.",
+    eyebrow: "anim8map alternative",
+    h1: "An anim8map Alternative That Preserves the Whole Trip",
+    accent: "anim8map alternative",
+    intro:
+      "A rendered route video is only one version of a journey. Cinemaly keeps the route, selected photos, notes, and stop order together as a private travel capsule before and after the video is shared.",
+    proofTitle: "A lasting travel memory, not only a rendered video",
+    proofIntro:
+      "Use Cinemaly to shape the journey as a private capsule first. The same route story can then become a social-ready video without reducing the entire trip to one final export.",
+    features: [
+      {
+        title: "Portable trip capsule",
+        description:
+          "Keep the route, photos, notes, and stop order together as a reusable travel memory.",
+      },
+      {
+        title: "Local-first personal content",
+        description:
+          "Cinemaly does not upload personal capsule content to a Cinemaly server and does not require an account.",
+      },
+      {
+        title: "Mobile creation and sharing",
+        description:
+          "Build and share cinematic travel stories from Cinemaly on iPhone or Android.",
+      },
+    ],
+    faq: [
+      {
+        question: "How is Cinemaly different from anim8map?",
+        answer:
+          "Cinemaly preserves a complete travel memory made from ordered stops, photos, notes, a portable capsule, and a social-ready map video instead of ending with one rendered route file.",
+      },
+      {
+        question: "Why choose Cinemaly instead of anim8map?",
+        answer:
+          "Choose Cinemaly when you want a complete, reusable trip memory on iPhone or Android, with local-first personal content and photos and notes that remain attached to the route.",
+      },
+      {
+        question: "When is Cinemaly the better choice?",
+        answer:
+          "Choose Cinemaly when you want the trip to remain organized and reusable after export, especially when privacy, notes, photo context, and a portable capsule matter.",
+      },
+      {
+        question: "Does Cinemaly require an account?",
+        answer:
+          "No. Cinemaly does not require an account, email address, or social profile to create travel capsules.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: "/blog/anim8map-vs-cinemaly",
+        label: "anim8map vs Cinemaly",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Best travel map animation apps",
+      },
+      { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly and turn your route, photos, notes, and ordered stops into a private capsule and cinematic map video.",
+    ctaTiles: ["Route", "Photos", "Notes"],
+    disclaimer:
+      "Cinemaly is not affiliated with, endorsed by, or connected to anim8map. Product details were checked against anim8map's official public pages on June 18, 2026 and may change.",
+  },
+  "animatemytravel-alternative": {
+    slug: "animatemytravel-alternative",
+    lastModified: "2026-06-18",
+    title: "An AnimateMyTravel Alternative for Complete Trip Memories",
+    description:
+      "Looking for an AnimateMyTravel alternative? Cinemaly adds photos, notes, private capsules, and lasting trip structure to cinematic route videos.",
+    eyebrow: "AnimateMyTravel alternative",
+    h1: "A Complete-Trip Alternative to AnimateMyTravel",
+    accent: "AnimateMyTravel alternative",
+    intro:
+      "Video resolution does not preserve the meaning of a trip. Cinemaly keeps the route as a complete personal story with photos, notes, ordered stops, and a portable capsule you control.",
+    proofTitle: "Keep the meaning behind the map animation",
+    proofIntro:
+      "A high-resolution route clip is useful for social media. A Cinemaly capsule keeps the material that made the journey personal, then lets you create a cinematic video from the same story.",
+    features: [
+      {
+        title: "Photos and notes in context",
+        description:
+          "Attach selected memories to the stops where they happened instead of keeping them outside the route.",
+      },
+      {
+        title: "Capsule ownership",
+        description:
+          "Keep the trip as a portable .cnmly capsule that you control and can share yourself.",
+      },
+      {
+        title: "iPhone and Android apps",
+        description:
+          "Create cinematic travel memories through a dedicated mobile experience on both major platforms.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is AnimateMyTravel really free?",
+        answer:
+          "Its official website currently describes the service as free. Pricing and product claims can change; Cinemaly's key difference is not an export claim but a complete private capsule that preserves the trip beyond one video.",
+      },
+      {
+        question: "How is Cinemaly different from AnimateMyTravel?",
+        answer:
+          "Cinemaly preserves a complete trip story with ordered stops, photos, notes, a portable capsule, and a social-ready video instead of treating the route export as the whole memory.",
+      },
+      {
+        question: "When should I choose Cinemaly?",
+        answer:
+          "Choose Cinemaly when the memories attached to each stop matter as much as the animation, or when you want a reusable private capsule rather than only a finished video.",
+      },
+      {
+        question: "Does Cinemaly upload my capsule to a server?",
+        answer:
+          "No. Cinemaly does not upload personal capsule content, photos, notes, or exported videos to a Cinemaly server.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: "/blog/animatemytravel-vs-cinemaly",
+        label: "AnimateMyTravel vs Cinemaly",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Best travel map animation apps",
+      },
+      { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/travel-capsule-file", label: "Travel capsule files" },
+      { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly for iPhone or Android and preserve the route, photos, notes, and meaning of your trip in one cinematic capsule.",
+    ctaTiles: ["Capsule", "Video", "Private"],
+    disclaimer:
+      "Cinemaly is not affiliated with, endorsed by, or connected to AnimateMyTravel. Product details were checked against AnimateMyTravel's official public pages on June 18, 2026 and may change.",
+  },
+  "travel-map-replay-alternative": {
+    slug: "travel-map-replay-alternative",
+    lastModified: "2026-06-18",
+    title: "A Travel Map Replay Alternative for Photos, Notes, and Android",
+    description:
+      "Looking for a Travel Map Replay alternative? Cinemaly creates cinematic routes with photos, notes, private capsules, and support for iPhone and Android.",
+    eyebrow: "Travel Map Replay alternative",
+    h1: "A Travel Map Replay Alternative That Keeps the Trip Alive",
+    accent: "Travel Map Replay alternative",
+    intro:
+      "A route replay can be watched once and forgotten. Cinemaly turns the journey into a complete travel memory with photos, notes, ordered stops, portable capsules, and support for both iPhone and Android.",
+    proofTitle: "From a quick replay to a complete memory",
+    proofIntro:
+      "Choose Cinemaly when you want to share a cinematic route but also keep a structured version of the journey that can be reopened, backed up, and shared as a capsule.",
+    features: [
+      {
+        title: "Photos and notes at every stop",
+        description:
+          "Give the route personal context with the memories and details that belong to each place.",
+      },
+      {
+        title: "iPhone and Android",
+        description:
+          "Create Cinemaly capsules on either major mobile platform instead of relying on an iPhone-only app.",
+      },
+      {
+        title: "Capsule plus video",
+        description:
+          "Keep a portable trip archive and create a social-ready cinematic map recap from it.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is Travel Map Replay available on Android?",
+        answer:
+          "Its current US App Store listing describes Travel Map Replay as an iPhone-only app. Cinemaly is available for both iPhone and Android.",
+      },
+      {
+        question: "What does Travel Map Replay focus on?",
+        answer:
+          "Its official listing centers on route-video replay. Cinemaly adds the missing travel context: photos, notes, ordered stops, capsules, privacy, and Android support.",
+      },
+      {
+        question: "How is Cinemaly different?",
+        answer:
+          "Cinemaly keeps photos, notes, route order, and stops together as a private travel capsule, with cinematic video as one shareable output.",
+      },
+      {
+        question: "Does Cinemaly require an account?",
+        answer:
+          "No. Cinemaly does not require an account, email address, or social profile to create travel capsules.",
+      },
+    ],
+    internalLinks: [
+      {
+        href: "/blog/travel-map-replay-vs-cinemaly",
+        label: "Travel Map Replay vs Cinemaly",
+      },
+      {
+        href: "/blog/best-travel-map-animation-apps",
+        label: "Best travel map animation apps",
+      },
+      { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/travel-capsule-file", label: "Travel capsule files" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly for iPhone or Android and turn your stops, photos, notes, and route into a private capsule and shareable map video.",
+    ctaTiles: ["iOS", "Android", "Capsule"],
+    disclaimer:
+      "Cinemaly is not affiliated with, endorsed by, or connected to Travel Map Replay, TripAnimations.com, or ZephyrLabs. Product details were checked against the official US App Store listing on June 18, 2026 and may change.",
   },
   "visited-countries-map": {
     slug: "visited-countries-map",
@@ -470,4 +788,5 @@ export const seoLandingPages = {
   },
 } satisfies Record<string, SeoLandingPageData>;
 
-export const seoLandingPageList = Object.values(seoLandingPages);
+export const seoLandingPageList: SeoLandingPageData[] =
+  Object.values(seoLandingPages);

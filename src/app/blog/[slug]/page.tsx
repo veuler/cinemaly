@@ -45,6 +45,18 @@ const postModules: Record<
   "what-is-cnmly-file": () => import("../posts/what-is-cnmly-file.mdx"),
   "how-to-make-visited-countries-map": () =>
     import("../posts/how-to-make-visited-countries-map.mdx"),
+  "best-travel-map-animation-apps": () =>
+    import("../posts/best-travel-map-animation-apps.mdx"),
+  "travelanimator-vs-cinemaly": () =>
+    import("../posts/travelanimator-vs-cinemaly.mdx"),
+  "best-apps-to-map-travel-photos": () =>
+    import("../posts/best-apps-to-map-travel-photos.mdx"),
+  "anim8map-vs-cinemaly": () =>
+    import("../posts/anim8map-vs-cinemaly.mdx"),
+  "animatemytravel-vs-cinemaly": () =>
+    import("../posts/animatemytravel-vs-cinemaly.mdx"),
+  "travel-map-replay-vs-cinemaly": () =>
+    import("../posts/travel-map-replay-vs-cinemaly.mdx"),
 };
 
 type Props = { params: Promise<{ slug: string }> };
