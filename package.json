@@ -13,6 +13,7 @@
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.2.1",
+    "@next/third-parties": "^16.2.9",
     "@tailwindcss/typography": "^0.5.19",
     "fflate": "^0.8.2",
     "next": "^16.2.0",

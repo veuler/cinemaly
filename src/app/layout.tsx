@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Lexend_Giga, Lexend_Tera } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import NavLogo from "@/components/NavLogo";
 
 const geistSans = Geist({
@@ -186,6 +187,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <NavLogo />
         {children} <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );
