@@ -12,9 +12,9 @@ export type PostMeta = {
 const postsUnsorted: PostMeta[] = [
   {
     slug: "interactive-travel-map-free",
-    title: "Create a Free Interactive Travel Map With Your Photos",
+    title: "Free Interactive Travel Map: Turn Photos Into a Route Story",
     description:
-      "Want to share your trip as more than a photo dump? Here's how to turn your photos and route into an interactive map — free, no account, runs entirely in your browser.",
+      "Create a free interactive travel map with photos, stops, notes, and a cinematic route story using Cinemaly.",
     date: "2026-03-22",
     readTime: "5 min read",
     keywords: [
@@ -24,13 +24,14 @@ const postsUnsorted: PostMeta[] = [
       "offline travel map generator",
       "browser-based travel map",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "polarsteps-vs-cinemaly",
     title:
-      "Polarsteps vs Cinemaly: Which Should You Use to Document Your Travels?",
+      "Polarsteps vs Cinemaly: Cinematic Private Trip Memories",
     description:
-      "Polarsteps tracks you live. Cinemaly compiles after you're home. Both are free — but they make very different trade-offs about where your data lives.",
+      "See why Cinemaly is a better fit when you want private post-trip capsules, photos, notes, and map videos instead of live travel tracking.",
     date: "2026-03-22",
     readTime: "6 min read",
     keywords: [
@@ -40,12 +41,13 @@ const postsUnsorted: PostMeta[] = [
       "private travel journal",
       "map-based trip diary",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "private-travel-documentation",
-    title: "7 Ways to Document Your Travels Without Uploading to the Cloud",
+    title: "Private Travel Documentation: 7 Ways to Keep Photos Off the Cloud",
     description:
-      "Seven honest ways to document a trip without uploading your photos to someone else's server — from encrypted apps to browser-based tools.",
+      "Seven practical ways to document travel privately, including Cinemaly capsules that keep photos, notes, and routes under your control.",
     date: "2026-03-23",
     readTime: "5 min read",
     keywords: [
@@ -55,6 +57,7 @@ const postsUnsorted: PostMeta[] = [
       "local-first travel diary",
       "browser-based travel map",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "amsterdam-belgium-travel",
@@ -227,9 +230,9 @@ const postsUnsorted: PostMeta[] = [
   },
   {
     slug: "how-to-make-visited-countries-map",
-    title: "How to Make a Visited Countries Map on Your Phone",
+    title: "Countries Visited Map Generator: Make a Map on Your Phone",
     description:
-      "Learn how to use Cinemaly's World tab as a visited countries map, visited cities tracker, and visual travel stats board.",
+      "Make a map of countries visited with Cinemaly's World tab. Add cities, mark countries, and track visual travel stats on your phone.",
     date: "2026-06-14",
     readTime: "5 min read",
     keywords: [
@@ -238,7 +241,10 @@ const postsUnsorted: PostMeta[] = [
       "countries visited map app",
       "world travel map app",
       "travel stats app",
+      "countries visited map generator",
+      "make a map of countries visited",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "best-travel-map-animation-apps",
@@ -256,6 +262,7 @@ const postsUnsorted: PostMeta[] = [
       "TravelAnimator alternative",
       "anim8map alternative",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "travelanimator-vs-cinemaly",
@@ -271,6 +278,7 @@ const postsUnsorted: PostMeta[] = [
       "travel route video app",
       "private travel map app",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "best-apps-to-map-travel-photos",
@@ -287,6 +295,7 @@ const postsUnsorted: PostMeta[] = [
       "trip photos on map",
       "photo route map",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "anim8map-vs-cinemaly",
@@ -302,6 +311,23 @@ const postsUnsorted: PostMeta[] = [
       "3D travel route video",
       "private travel map app",
     ],
+    lastModified: "2026-06-29",
+  },
+  {
+    slug: "how-to-create-visited-places-map",
+    title: "How to Create a Map of Places You Have Visited",
+    description:
+      "Create a visited places map with cities, countries, photos, notes, and private Cinemaly travel capsules.",
+    date: "2026-06-29",
+    readTime: "5 min read",
+    keywords: [
+      "create map of places visited",
+      "visited places map",
+      "visited cities map generator",
+      "mark cities visited on map",
+      "countries visited map generator",
+    ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "animatemytravel-vs-cinemaly",
@@ -317,6 +343,7 @@ const postsUnsorted: PostMeta[] = [
       "4K travel route animation",
       "travel capsule app",
     ],
+    lastModified: "2026-06-29",
   },
   {
     slug: "travel-map-replay-vs-cinemaly",
@@ -332,6 +359,7 @@ const postsUnsorted: PostMeta[] = [
       "animated route video iPhone",
       "travel map app Android",
     ],
+    lastModified: "2026-06-29",
   },
 ];
 

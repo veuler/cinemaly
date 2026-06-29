@@ -35,6 +35,7 @@ export type SeoLandingPageData = {
 export const seoLandingPages = {
   "animated-travel-map": {
     slug: "animated-travel-map",
+    lastModified: "2026-06-29",
     title: "Create an Animated Travel Map From Your Trip Photos",
     description:
       "Create an animated travel map with Cinemaly. Add trip photos, ordered stops, and notes, then watch your journey unfold as a cinematic route story.",
@@ -91,12 +92,14 @@ export const seoLandingPages = {
         label: "Best travel map animation apps",
       },
       { href: "/road-trip-map-app", label: "Road trip map app" },
+      { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
   "travel-map-video-maker": {
     slug: "travel-map-video-maker",
+    lastModified: "2026-06-29",
     title: "Make a Cinematic Travel Map Video Without Editing",
     description:
       "Use Cinemaly as a travel map video maker for trip recaps, reels, and route stories. Add stops, photos, and notes, then create a cinematic travel video.",
@@ -162,12 +165,14 @@ export const seoLandingPages = {
         label: "Travel Map Replay alternative",
       },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
   "private-travel-journal-app": {
     slug: "private-travel-journal-app",
+    lastModified: "2026-06-29",
     title: "A Private Travel Journal App for Photos, Routes, and Notes",
     description:
       "Cinemaly is a private travel journal app for cinematic map memories. Keep capsules, photos, notes, and videos on your device with no account required.",
@@ -216,12 +221,14 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/travel-capsule-file", label: "What is a travel capsule?" },
       { href: "/polarsteps-alternative", label: "Polarsteps alternative" },
+      { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
   "polarsteps-alternative": {
     slug: "polarsteps-alternative",
+    lastModified: "2026-06-29",
     title: "A Cinematic Polarsteps Alternative for Private Travel Memories",
     description:
       "Looking for a Polarsteps alternative? Cinemaly is a cinematic travel map app for private post-trip memories, capsules, and travel videos.",
@@ -270,6 +277,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
@@ -570,17 +578,18 @@ export const seoLandingPages = {
   },
   "visited-countries-map": {
     slug: "visited-countries-map",
-    title: "Create a Visited Countries Map With Cities and Travel Stats",
+    lastModified: "2026-06-29",
+    title: "Countries Visited Map Generator With Cities and Travel Stats",
     description:
-      "Use Cinemaly's World tab as a visited countries map and visited cities tracker. Add places you have been, color them on a world map, and see travel stats by country.",
+      "Make a map of countries visited with Cinemaly. Add cities or countries, color your world map, and track travel stats without creating an account.",
     eyebrow: "Visited countries map",
-    h1: "Create a Visited Countries Map With Cities and Travel Stats",
-    accent: "visited countries map",
+    h1: "Make a Countries Visited Map With Cities and Travel Stats",
+    accent: "countries visited map",
     intro:
-      "Cinemaly's World tab turns the places you have visited into a visual world map. Add cities or countries, see visited areas highlighted on the map, and track simple travel stats as your personal map fills in.",
-    proofTitle: "A visual tracker for where you have been",
+      "Cinemaly's World tab works as a countries visited map generator for travelers who want more than a plain checklist. Add the places you have been, mark countries on a visual world map, and keep simple travel stats as your map fills in.",
+    proofTitle: "A cleaner way to see where you have been",
     proofIntro:
-      "Some trips deserve a cinematic capsule. Others deserve a clean overview of everywhere you have already been. The World tab gives travelers both the map and the numbers.",
+      "Some trips deserve a cinematic capsule. Others deserve a clean overview of everywhere you have already been. Cinemaly gives you both the country-level map and the personal trip memories behind it.",
     features: [
       {
         title: "Visited cities and countries",
@@ -600,9 +609,14 @@ export const seoLandingPages = {
     ],
     faq: [
       {
-        question: "Can I make a map of countries I have visited?",
+        question: "Can I make a map of countries visited?",
         answer:
           "Yes. Cinemaly's World tab lets you add visited cities or countries and shows them visually on a world map.",
+      },
+      {
+        question: "Is Cinemaly a countries visited map generator?",
+        answer:
+          "Yes. Use Cinemaly to add places you have visited, highlight countries where available, and track simple country-level travel progress.",
       },
       {
         question: "Does Cinemaly show travel statistics?",
@@ -616,6 +630,12 @@ export const seoLandingPages = {
       },
     ],
     internalLinks: [
+      { href: "/visited-places-map", label: "Visited places map" },
+      { href: "/visited-cities-map", label: "Visited cities map" },
+      {
+        href: "/blog/how-to-create-visited-places-map",
+        label: "Create a map of places visited",
+      },
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/road-trip-map-app", label: "Road trip map app" },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
@@ -625,8 +645,140 @@ export const seoLandingPages = {
       "Download Cinemaly and use the World tab to color the cities and countries you have visited on a personal travel map.",
     ctaTiles: ["Cities", "Countries", "Stats"],
   },
+  "visited-places-map": {
+    slug: "visited-places-map",
+    lastModified: "2026-06-29",
+    title: "Visited Places Map Generator for Cities and Countries",
+    description:
+      "Create a visited places map with Cinemaly. Mark cities, countries, and stops you have visited, see travel stats, and keep memories in private capsules.",
+    eyebrow: "Visited places map",
+    h1: "Create a Visited Places Map for Cities and Countries",
+    accent: "visited places map",
+    intro:
+      "If you want to create a map of places visited, Cinemaly gives you a simple place to start. Mark cities, countries, and meaningful stops, then keep the bigger picture of your travels alongside private cinematic trip capsules.",
+    proofTitle: "One map for the places that shaped your travels",
+    proofIntro:
+      "A visited places map should be more than a list of pins. Cinemaly helps you see where you have been, remember why those places mattered, and turn special journeys into route stories when they deserve more detail.",
+    features: [
+      {
+        title: "Mark cities and countries",
+        description:
+          "Add the places you have visited and build a visual record of your travel history.",
+      },
+      {
+        title: "Keep stats and context",
+        description:
+          "Use the World tab for travel progress and capsules for the photos, notes, and route behind individual trips.",
+      },
+      {
+        title: "Private by default",
+        description:
+          "Cinemaly does not require an account and does not upload personal capsule content to a Cinemaly server.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do I create a map of places visited?",
+        answer:
+          "Open Cinemaly, add the cities or countries you have visited in the World tab, and use capsules when a specific trip needs photos, notes, and a cinematic route story.",
+      },
+      {
+        question: "Can I mark cities visited on a map?",
+        answer:
+          "Yes. Cinemaly lets you add visited cities and keep them as part of your broader travel map.",
+      },
+      {
+        question: "Is this also a countries visited map generator?",
+        answer:
+          "Yes. Cinemaly can help you track visited countries, visited cities, and meaningful places from the same travel-memory system.",
+      },
+      {
+        question: "Do I need a Cinemaly account?",
+        answer:
+          "No. Cinemaly does not require an account, email address, or social profile to create travel memories.",
+      },
+    ],
+    internalLinks: [
+      { href: "/visited-countries-map", label: "Countries visited map" },
+      { href: "/visited-cities-map", label: "Visited cities map" },
+      {
+        href: "/blog/how-to-create-visited-places-map",
+        label: "How to create a visited places map",
+      },
+      { href: "/private-travel-journal-app", label: "Private travel journal" },
+      { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly and start building a private visual map of the cities, countries, and places you have visited.",
+    ctaTiles: ["Places", "Cities", "Stats"],
+  },
+  "visited-cities-map": {
+    slug: "visited-cities-map",
+    lastModified: "2026-06-29",
+    title: "Visited Cities Map Generator for Your Travel Memories",
+    description:
+      "Use Cinemaly as a visited cities map generator. Mark cities visited, connect them into trips, add photos and notes, and build private travel capsules.",
+    eyebrow: "Visited cities map",
+    h1: "Create a Visited Cities Map With Photos, Routes, and Stats",
+    accent: "visited cities map",
+    intro:
+      "A visited cities map gives your travel history more texture than a country count alone. Add cities you have visited, connect important stops into cinematic trip capsules, and keep your travel memories organized without a social profile.",
+    proofTitle: "Cities make the map feel personal",
+    proofIntro:
+      "Countries show scale. Cities hold the actual memories. Cinemaly brings both together so your map can show progress while your capsules preserve the stories behind the stops.",
+    features: [
+      {
+        title: "City-level travel record",
+        description:
+          "Mark cities visited on a map and keep them organized as part of your long-term travel history.",
+      },
+      {
+        title: "Routes for special trips",
+        description:
+          "Turn a set of city stops into a cinematic travel capsule with route order, photos, and notes.",
+      },
+      {
+        title: "No live tracking required",
+        description:
+          "Add places manually when you want control, privacy, and a cleaner post-trip memory.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a visited cities map generator?",
+        answer:
+          "It is a tool for marking cities you have visited on a map. Cinemaly also lets you connect selected cities into private route-based travel capsules.",
+      },
+      {
+        question: "Can I mark cities visited without live tracking?",
+        answer:
+          "Yes. Cinemaly is built around intentional place entry and post-trip memory creation, not mandatory background GPS tracking.",
+      },
+      {
+        question: "Can I turn visited cities into a travel video?",
+        answer:
+          "Yes. For a specific journey, you can add ordered stops, photos, and notes, then create a cinematic map-based trip story.",
+      },
+    ],
+    internalLinks: [
+      { href: "/visited-places-map", label: "Visited places map" },
+      { href: "/visited-countries-map", label: "Countries visited map" },
+      {
+        href: "/blog/how-to-create-visited-places-map",
+        label: "Create a map of places visited",
+      },
+      { href: "/road-trip-map-app", label: "Road trip map app" },
+      { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/download", label: "Download Cinemaly" },
+    ],
+    ctaDescription:
+      "Download Cinemaly and mark the cities you have visited, then turn your best routes into cinematic travel memories.",
+    ctaTiles: ["Cities", "Routes", "Photos"],
+  },
   "road-trip-map-app": {
     slug: "road-trip-map-app",
+    lastModified: "2026-06-29",
     title: "Create a Cinematic Road Trip Map With Photos and Stops",
     description:
       "Use Cinemaly as a road trip map app to turn routes, stops, photos, and notes into cinematic travel map capsules and videos.",
@@ -675,12 +827,15 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/travel-map-video-maker", label: "Travel map video maker" },
+      { href: "/visited-places-map", label: "Visited places map" },
+      { href: "/visited-cities-map", label: "Visited cities map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],
   },
   "travel-capsule-file": {
     slug: "travel-capsule-file",
+    lastModified: "2026-06-29",
     title: "What Is a Cinemaly Travel Capsule?",
     description:
       "Learn what a Cinemaly travel capsule is, how .cnmly files work, and how they keep your route, photos, notes, and memories portable.",
@@ -729,6 +884,7 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
     ],

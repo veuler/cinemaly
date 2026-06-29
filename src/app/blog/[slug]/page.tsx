@@ -45,6 +45,8 @@ const postModules: Record<
   "what-is-cnmly-file": () => import("../posts/what-is-cnmly-file.mdx"),
   "how-to-make-visited-countries-map": () =>
     import("../posts/how-to-make-visited-countries-map.mdx"),
+  "how-to-create-visited-places-map": () =>
+    import("../posts/how-to-create-visited-places-map.mdx"),
   "best-travel-map-animation-apps": () =>
     import("../posts/best-travel-map-animation-apps.mdx"),
   "travelanimator-vs-cinemaly": () =>
