@@ -11,6 +11,70 @@ export type PostMeta = {
 
 const postsUnsorted: PostMeta[] = [
   {
+    slug: "private-travel-map-app-no-login",
+    title: "A Private Travel Map App With No Login: Why That Matters",
+    description:
+      "Looking for a private travel map app with no login? Cinemaly helps you build route stories from photos and notes without a Cinemaly account or server-side capsule storage.",
+    date: "2026-07-07",
+    readTime: "5 min read",
+    keywords: [
+      "private travel map app no login",
+      "travel map app no login",
+      "private travel map app",
+      "no account travel map",
+      "map trip photos privately",
+    ],
+    lastModified: "2026-07-07",
+  },
+  {
+    slug: "offline-travel-journal-app",
+    title: "Offline Travel Journal App: What Still Works When the Signal Drops",
+    description:
+      "What to look for in an offline travel journal app, from local photos and notes to portable map-based capsules you can keep.",
+    date: "2026-07-07",
+    readTime: "5 min read",
+    keywords: [
+      "offline travel journal app",
+      "offline travel journal",
+      "travel journal offline",
+      "offline photo travel journal",
+      "offline travel map journal",
+    ],
+    lastModified: "2026-07-07",
+  },
+  {
+    slug: "on-device-travel-map-no-account",
+    title: "An On-Device Travel Map With No Account",
+    description:
+      "For travelers searching for an on-device travel map with no account, here is how local-first trip memories work in Cinemaly.",
+    date: "2026-07-07",
+    readTime: "5 min read",
+    keywords: [
+      "on-device travel map no account",
+      "on device travel map",
+      "travel map no account",
+      "local-first travel map",
+      "private travel map app",
+    ],
+    lastModified: "2026-07-07",
+  },
+  {
+    slug: "private-photo-map-app",
+    title: "Private Photo Map App: Put Trip Photos on a Map Without a Feed",
+    description:
+      "A private photo map app should help you place photos, route, and notes together without turning the trip into public content.",
+    date: "2026-07-07",
+    readTime: "5 min read",
+    keywords: [
+      "private photo map app",
+      "photo map app private",
+      "map trip photos privately",
+      "travel photo map no account",
+      "private travel photos map",
+    ],
+    lastModified: "2026-07-07",
+  },
+  {
     slug: "interactive-travel-map-free",
     title: "Free Interactive Travel Map: Turn Photos Into a Route Story",
     description:

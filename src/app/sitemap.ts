@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://cinemaly.app/blog",
-      lastModified: new Date("2026-06-29"),
+      lastModified: new Date("2026-07-07"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
