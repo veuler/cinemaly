@@ -26,6 +26,9 @@ function Footer() {
               Transform your photos and routes into a cinematic experience
               powered by an autonomous map engine.
             </p>
+            <p className="text-[10px] text-stone-500" aria-label="Rated 4.8 out of 5 from 5 user ratings">
+              Rated 4.8/5 <span aria-hidden>★</span> from 5 user ratings
+            </p>
           </div>
           <div className="flex flex-col items-center md:items-end gap-3">
             <div className="flex flex-wrap items-center justify-center gap-6">

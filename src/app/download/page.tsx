@@ -4,6 +4,14 @@ import DownloadQrBlock from "@/components/DownloadQrBlock";
 import StoreCtaPanel from "@/components/StoreCtaPanel";
 import { storeLinks } from "@/components/storeLinks";
 
+const cinemalyAggregateRating = {
+  "@type": "AggregateRating",
+  ratingValue: 4.8,
+  ratingCount: 5,
+  bestRating: 5,
+  worstRating: 1,
+};
+
 export const metadata: Metadata = {
   title: "Download Cinemaly for iPhone and Android",
   description:
@@ -131,6 +139,7 @@ function JsonLd() {
       price: "0",
       priceCurrency: "USD",
     },
+    aggregateRating: cinemalyAggregateRating,
     description:
       "Cinemaly turns trip photos, routes, stops, and notes into private cinematic travel map stories, capsules, travel videos, and a World map of visited cities and countries.",
   };

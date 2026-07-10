@@ -27,6 +27,14 @@ const lexendTera = Lexend_Tera({
   variable: "--font-lexend-tera",
 });
 
+const cinemalyAggregateRating = {
+  "@type": "AggregateRating",
+  ratingValue: 4.8,
+  ratingCount: 5,
+  bestRating: 5,
+  worstRating: 1,
+};
+
 export const viewport: Viewport = {
   viewportFit: "cover",
 };
@@ -152,6 +160,7 @@ export default function RootLayout({
                 price: "0",
                 priceCurrency: "USD",
               },
+              aggregateRating: cinemalyAggregateRating,
               featureList: [
                 "Interactive travel map",
                 "Cinematic photo gallery",
@@ -176,6 +185,7 @@ export default function RootLayout({
                 price: "0",
                 priceCurrency: "USD",
               },
+              aggregateRating: cinemalyAggregateRating,
               downloadUrl: [
                 "https://apps.apple.com/us/app/cinemaly/id6763919834",
                 "https://play.google.com/store/apps/details?id=com.veulerv.cinemaly",

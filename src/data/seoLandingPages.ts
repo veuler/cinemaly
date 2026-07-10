@@ -35,7 +35,7 @@ export type SeoLandingPageData = {
 export const seoLandingPages = {
   "animated-travel-map": {
     slug: "animated-travel-map",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "Create an Animated Travel Map From Your Trip Photos",
     description:
       "Create an animated travel map with Cinemaly. Add trip photos, ordered stops, and notes, then watch your journey unfold as a cinematic route story.",
@@ -91,6 +91,11 @@ export const seoLandingPages = {
         href: "/blog/best-travel-map-animation-apps",
         label: "Best travel map animation apps",
       },
+      {
+        href: "/blog/how-to-create-animated-travel-map",
+        label: "How to create an animated travel map",
+      },
+      { href: "/director-mode", label: "Cinemaly Director Mode" },
       { href: "/road-trip-map-app", label: "Road trip map app" },
       { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
@@ -99,7 +104,7 @@ export const seoLandingPages = {
   },
   "travel-map-video-maker": {
     slug: "travel-map-video-maker",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "Make a Cinematic Travel Map Video Without Editing",
     description:
       "Use Cinemaly as a travel map video maker for trip recaps, reels, and route stories. Add stops, photos, and notes, then create a cinematic travel video.",
@@ -155,6 +160,11 @@ export const seoLandingPages = {
         href: "/blog/best-travel-map-animation-apps",
         label: "Compare travel map animation apps",
       },
+      {
+        href: "/blog/turn-vacation-photos-into-travel-video",
+        label: "Turn vacation photos into a travel video",
+      },
+      { href: "/director-mode", label: "Cinemaly Director Mode" },
       { href: "/anim8map-alternative", label: "anim8map alternative" },
       {
         href: "/animatemytravel-alternative",
@@ -172,7 +182,7 @@ export const seoLandingPages = {
   },
   "private-travel-journal-app": {
     slug: "private-travel-journal-app",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "A Private Travel Journal App for Photos, Routes, and Notes",
     description:
       "Cinemaly is a private travel journal app for cinematic map memories. Keep capsules, photos, notes, and videos on your device with no account required.",
@@ -220,6 +230,10 @@ export const seoLandingPages = {
     ],
     internalLinks: [
       { href: "/travel-capsule-file", label: "What is a travel capsule?" },
+      {
+        href: "/blog/private-travel-journal-no-cloud",
+        label: "Private travel journals without cloud storage",
+      },
       { href: "/polarsteps-alternative", label: "Polarsteps alternative" },
       { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
@@ -228,7 +242,7 @@ export const seoLandingPages = {
   },
   "polarsteps-alternative": {
     slug: "polarsteps-alternative",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "A Cinematic Polarsteps Alternative for Private Travel Memories",
     description:
       "Looking for a Polarsteps alternative? Cinemaly is a cinematic travel map app for private post-trip memories, capsules, and travel videos.",
@@ -276,6 +290,10 @@ export const seoLandingPages = {
     ],
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
+      {
+        href: "/blog/best-polarsteps-alternatives",
+        label: "Best Polarsteps alternatives",
+      },
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
@@ -578,7 +596,7 @@ export const seoLandingPages = {
   },
   "visited-countries-map": {
     slug: "visited-countries-map",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "Countries Visited Map Generator With Cities and Travel Stats",
     description:
       "Make a map of countries visited with Cinemaly. Add cities or countries, color your world map, and track travel stats without creating an account.",
@@ -636,6 +654,10 @@ export const seoLandingPages = {
         href: "/blog/how-to-create-visited-places-map",
         label: "Create a map of places visited",
       },
+      {
+        href: "/blog/how-to-make-visited-countries-map",
+        label: "How to make a visited countries map",
+      },
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/road-trip-map-app", label: "Road trip map app" },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
@@ -647,7 +669,7 @@ export const seoLandingPages = {
   },
   "visited-places-map": {
     slug: "visited-places-map",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "Visited Places Map Generator for Cities and Countries",
     description:
       "Create a visited places map with Cinemaly. Mark cities, countries, and stops you have visited, see travel stats, and keep memories in private capsules.",
@@ -704,6 +726,10 @@ export const seoLandingPages = {
       {
         href: "/blog/how-to-create-visited-places-map",
         label: "How to create a visited places map",
+      },
+      {
+        href: "/blog/best-apps-to-map-travel-photos",
+        label: "Best apps to map travel photos",
       },
       { href: "/private-travel-journal-app", label: "Private travel journal" },
       { href: "/animated-travel-map", label: "Animated travel map" },
@@ -835,7 +861,7 @@ export const seoLandingPages = {
   },
   "travel-capsule-file": {
     slug: "travel-capsule-file",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "What Is a Cinemaly Travel Capsule?",
     description:
       "Learn what a Cinemaly travel capsule is, how .cnmly files work, and how they keep your route, photos, notes, and memories portable.",
@@ -883,7 +909,12 @@ export const seoLandingPages = {
     ],
     internalLinks: [
       { href: "/private-travel-journal-app", label: "Private travel journal" },
+      {
+        href: "/blog/what-is-cnmly-file",
+        label: "What is a .cnmly file?",
+      },
       { href: "/animated-travel-map", label: "Animated travel map" },
+      { href: "/director-mode", label: "Cinemaly Director Mode" },
       { href: "/visited-places-map", label: "Visited places map" },
       { href: "/visited-countries-map", label: "Visited countries map" },
       { href: "/download", label: "Download Cinemaly" },
@@ -891,6 +922,7 @@ export const seoLandingPages = {
   },
   "director-mode": {
     slug: "director-mode",
+    lastModified: "2026-07-11",
     title: "Cinemaly Director Mode for Cinematic Travel Stories",
     description:
       "Explore Cinemaly Director Mode for cinematic map themes, camera styles, aura colors, and richer travel capsule creation.",

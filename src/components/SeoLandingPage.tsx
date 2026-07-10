@@ -5,6 +5,14 @@ import StoreCtaPanel from "@/components/StoreCtaPanel";
 import type { SeoLandingPageData } from "@/data/seoLandingPages";
 import { storeLinks } from "@/components/storeLinks";
 
+const cinemalyAggregateRating = {
+  "@type": "AggregateRating",
+  ratingValue: 4.8,
+  ratingCount: 5,
+  bestRating: 5,
+  worstRating: 1,
+};
+
 export function createSeoLandingMetadata(page: SeoLandingPageData): Metadata {
   return {
     title: page.title,
@@ -48,6 +56,7 @@ function JsonLd({ page }: { page: SeoLandingPageData }) {
       price: "0",
       priceCurrency: "USD",
     },
+    aggregateRating: cinemalyAggregateRating,
     description: page.description,
   };
 

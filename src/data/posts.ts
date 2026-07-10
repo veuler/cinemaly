@@ -105,7 +105,7 @@ const postsUnsorted: PostMeta[] = [
       "private travel journal",
       "map-based trip diary",
     ],
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
   },
   {
     slug: "private-travel-documentation",
@@ -121,7 +121,7 @@ const postsUnsorted: PostMeta[] = [
       "local-first travel diary",
       "browser-based travel map",
     ],
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
   },
   {
     slug: "amsterdam-belgium-travel",
@@ -153,6 +153,7 @@ const postsUnsorted: PostMeta[] = [
       "travel photo map",
       "Cinemaly travel story",
     ],
+    lastModified: "2026-07-11",
   },
   {
     slug: "cinemaly-android-travel-capsule-app",
@@ -185,6 +186,7 @@ const postsUnsorted: PostMeta[] = [
       "cnmly export",
       "privacy-first travel documentation",
     ],
+    lastModified: "2026-07-11",
   },
   {
     slug: "italy-road-trip-travel-map",
@@ -326,7 +328,7 @@ const postsUnsorted: PostMeta[] = [
       "TravelAnimator alternative",
       "anim8map alternative",
     ],
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
   },
   {
     slug: "travelanimator-vs-cinemaly",
@@ -359,7 +361,7 @@ const postsUnsorted: PostMeta[] = [
       "trip photos on map",
       "photo route map",
     ],
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
   },
   {
     slug: "anim8map-vs-cinemaly",
@@ -391,7 +393,7 @@ const postsUnsorted: PostMeta[] = [
       "mark cities visited on map",
       "countries visited map generator",
     ],
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
   },
   {
     slug: "animatemytravel-vs-cinemaly",
