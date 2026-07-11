@@ -18,6 +18,11 @@ const postModules: Record<
   string,
   () => Promise<{ default: React.ComponentType }>
 > = {
+  "how-to-plan-a-road-trip-route": () =>
+    import("../posts/how-to-plan-a-road-trip-route.mdx"),
+  "travel-journal-ideas": () => import("../posts/travel-journal-ideas.mdx"),
+  "how-to-organize-travel-photos": () =>
+    import("../posts/how-to-organize-travel-photos.mdx"),
   "private-travel-map-app-no-login": () =>
     import("../posts/private-travel-map-app-no-login.mdx"),
   "offline-travel-journal-app": () =>

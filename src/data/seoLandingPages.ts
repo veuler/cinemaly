@@ -231,6 +231,10 @@ export const seoLandingPages = {
     internalLinks: [
       { href: "/travel-capsule-file", label: "What is a travel capsule?" },
       {
+        href: "/blog/travel-journal-ideas",
+        label: "Travel journal ideas and prompts",
+      },
+      {
         href: "/blog/private-travel-journal-no-cloud",
         label: "Private travel journals without cloud storage",
       },
@@ -804,7 +808,7 @@ export const seoLandingPages = {
   },
   "road-trip-map-app": {
     slug: "road-trip-map-app",
-    lastModified: "2026-06-29",
+    lastModified: "2026-07-11",
     title: "Create a Cinematic Road Trip Map With Photos and Stops",
     description:
       "Use Cinemaly as a road trip map app to turn routes, stops, photos, and notes into cinematic travel map capsules and videos.",
@@ -851,6 +855,10 @@ export const seoLandingPages = {
       },
     ],
     internalLinks: [
+      {
+        href: "/blog/how-to-plan-a-road-trip-route",
+        label: "How to plan a road trip route",
+      },
       { href: "/animated-travel-map", label: "Animated travel map" },
       { href: "/travel-map-video-maker", label: "Travel map video maker" },
       { href: "/visited-places-map", label: "Visited places map" },

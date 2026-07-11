@@ -11,6 +11,54 @@ export type PostMeta = {
 
 const postsUnsorted: PostMeta[] = [
   {
+    slug: "how-to-plan-a-road-trip-route",
+    title: "How to Plan a Road Trip Route Without Overplanning",
+    description:
+      "Learn how to plan a road trip route with realistic driving days, worthwhile stops, useful buffers, and enough freedom to enjoy the road.",
+    date: "2026-07-11",
+    readTime: "8 min read",
+    keywords: [
+      "how to plan a road trip route",
+      "road trip route planner",
+      "plan a road trip",
+      "road trip planning",
+      "road trip itinerary",
+    ],
+    lastModified: "2026-07-11",
+  },
+  {
+    slug: "travel-journal-ideas",
+    title: "Travel Journal Ideas: What to Write Before, During, and After a Trip",
+    description:
+      "Practical travel journal ideas and prompts for recording routes, ordinary moments, useful details, and the stories photos tend to miss.",
+    date: "2026-07-11",
+    readTime: "8 min read",
+    keywords: [
+      "travel journal ideas",
+      "travel journal prompts",
+      "travel diary ideas",
+      "what to write in a travel journal",
+      "vacation journal ideas",
+    ],
+    lastModified: "2026-07-11",
+  },
+  {
+    slug: "how-to-organize-travel-photos",
+    title: "How to Organize Travel Photos Without Losing the Story",
+    description:
+      "A practical system for organizing travel photos by trip, date, place, and story so your best memories are easy to find and revisit.",
+    date: "2026-07-11",
+    readTime: "8 min read",
+    keywords: [
+      "how to organize travel photos",
+      "organize vacation photos",
+      "travel photo organization",
+      "sort trip photos",
+      "organize photos by trip",
+    ],
+    lastModified: "2026-07-11",
+  },
+  {
     slug: "private-travel-map-app-no-login",
     title: "A Private Travel Map App With No Login: Why That Matters",
     description:
@@ -202,6 +250,7 @@ const postsUnsorted: PostMeta[] = [
       "travel route map free",
       "share trip photos privately",
     ],
+    lastModified: "2026-07-11",
   },
   {
     slug: "solo-backpacking-southeast-asia",
