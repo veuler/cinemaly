@@ -18,6 +18,10 @@ const postModules: Record<
   string,
   () => Promise<{ default: React.ComponentType }>
 > = {
+  "travel-itinerary-template": () =>
+    import("../posts/travel-itinerary-template.mdx"),
+  "travel-photography-tips": () => import("../posts/travel-photography-tips.mdx"),
+  "travel-scrapbook-ideas": () => import("../posts/travel-scrapbook-ideas.mdx"),
   "how-to-plan-a-road-trip-route": () =>
     import("../posts/how-to-plan-a-road-trip-route.mdx"),
   "travel-journal-ideas": () => import("../posts/travel-journal-ideas.mdx"),

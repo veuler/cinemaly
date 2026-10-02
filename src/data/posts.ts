@@ -11,6 +11,54 @@ export type PostMeta = {
 
 const postsUnsorted: PostMeta[] = [
   {
+    slug: "travel-itinerary-template",
+    title: "Travel Itinerary Template: A Simple Plan You Can Copy",
+    description:
+      "Copy a free travel itinerary template with daily plans, transport, bookings, and arrival details. Includes a three-day example and practical planning tips.",
+    date: "2026-10-02",
+    readTime: "7 min read",
+    keywords: [
+      "travel itinerary template",
+      "free travel itinerary template",
+      "vacation itinerary template",
+      "daily travel itinerary",
+      "travel itinerary example",
+    ],
+    lastModified: "2026-10-02",
+  },
+  {
+    slug: "travel-photography-tips",
+    title: "12 Travel Photography Tips for Better Vacation Photos",
+    description:
+      "Practical travel photography tips for phones and cameras: find better light, sharpen your composition, capture everyday moments, and build a better photo story.",
+    date: "2026-10-02",
+    readTime: "8 min read",
+    keywords: [
+      "travel photography tips",
+      "travel photography tips for beginners",
+      "vacation photography tips",
+      "phone travel photography",
+      "how to take better travel photos",
+    ],
+    lastModified: "2026-10-02",
+  },
+  {
+    slug: "travel-scrapbook-ideas",
+    title: "12 Travel Scrapbook Ideas With Simple Page Layouts",
+    description:
+      "Try 12 travel scrapbook ideas for photos, maps, tickets, and handwritten notes, with simple page layouts and a six-spread vacation album plan.",
+    date: "2026-10-02",
+    readTime: "8 min read",
+    keywords: [
+      "travel scrapbook ideas",
+      "travel scrapbook layouts",
+      "vacation scrapbook ideas",
+      "travel memory book ideas",
+      "digital travel scrapbook",
+    ],
+    lastModified: "2026-10-02",
+  },
+  {
     slug: "how-to-plan-a-road-trip-route",
     title: "How to Plan a Road Trip Route Without Overplanning",
     description:
@@ -24,7 +72,7 @@ const postsUnsorted: PostMeta[] = [
       "road trip planning",
       "road trip itinerary",
     ],
-    lastModified: "2026-07-11",
+    lastModified: "2026-10-02",
   },
   {
     slug: "travel-journal-ideas",
@@ -40,7 +88,7 @@ const postsUnsorted: PostMeta[] = [
       "what to write in a travel journal",
       "vacation journal ideas",
     ],
-    lastModified: "2026-07-11",
+    lastModified: "2026-10-02",
   },
   {
     slug: "how-to-organize-travel-photos",
@@ -56,7 +104,7 @@ const postsUnsorted: PostMeta[] = [
       "sort trip photos",
       "organize photos by trip",
     ],
-    lastModified: "2026-07-11",
+    lastModified: "2026-10-02",
   },
   {
     slug: "private-travel-map-app-no-login",
