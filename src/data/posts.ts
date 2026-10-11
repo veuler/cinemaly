@@ -11,6 +11,38 @@ export type PostMeta = {
 
 const postsUnsorted: PostMeta[] = [
   {
+    slug: "how-to-share-travel-photos-with-family",
+    title: "How to Share Travel Photos With Family: Albums, Files, and Maps",
+    description:
+      "Learn how to share travel photos with family using shared albums, original files, or a private route story. Includes a practical checklist for mixed devices.",
+    date: "2026-10-11",
+    readTime: "5 min read",
+    keywords: [
+      "how to share travel photos with family",
+      "share vacation photos privately",
+      "share travel photos without social media",
+      "share trip photos with family",
+      "private travel photo sharing",
+    ],
+    lastModified: "2026-10-11",
+  },
+  {
+    slug: "how-to-find-where-a-photo-was-taken",
+    title: "How to Find Where a Photo Was Taken, Even Without GPS",
+    description:
+      "Find where a photo was taken using iPhone photo details, Google Photos, and clues when GPS is missing. Then place confirmed travel photos on a route map.",
+    date: "2026-10-11",
+    readTime: "5 min read",
+    keywords: [
+      "how to find where a photo was taken",
+      "find photo location",
+      "find location of photo without GPS",
+      "travel photos missing location",
+      "photo location on iPhone",
+    ],
+    lastModified: "2026-10-11",
+  },
+  {
     slug: "travel-itinerary-template",
     title: "Travel Itinerary Template: A Simple Plan You Can Copy",
     description:
